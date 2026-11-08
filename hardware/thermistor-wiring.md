@@ -1,4 +1,4 @@
-# Thermistor wiring: Arduino Nano
+# Thermistor wiring for test: Arduino Nano
 
 How the two breathing thermistors are wired to the Arduino Nano. The test code that reads them is in the `tests` folder.
 
