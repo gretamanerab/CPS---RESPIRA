@@ -88,7 +88,6 @@ Lastly, one of the pillars of modern design theory discusses how design can be r
   <img width="607" height="405" alt="Respira project image" src="https://github.com/user-attachments/assets/e70be18c-e150-40ff-b537-b2bd3fe55ae8" />
 </p>
 
-
 ## 04. Research
 ## 05. Mechanical Design and Fabrication
 ## 06. Hardware
