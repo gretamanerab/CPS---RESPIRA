@@ -43,6 +43,15 @@ Listed Objectives:
 4. User Experience: Investigate if a non-verbal interaction with bubbles is intuitive to visitors. Self- reported calmness before and after interaction with Respira.
 
 ## 02. System Architecture
+
+The user experience is divided into three stages:
+1. Notice
+As visitors first engage, they notice that the bubble formation copies their own breathing. This could make abnormal breathing, such as one aﬀected by stress, evident, without using screens or numbers.
+3. Mirror
+Moving exactly with them, the bubble becomes their breath. “Respira” first establishes a sense of correspondence, allowing the visitor and the installation to move together.
+5. Guide
+Once synchronisation is established, the bubbles gradually slow their rhythm, inviting visitors to follow. The installation gradually adjusts towards approximately six breaths per minute. The pace decreases incrementally over several breathing cycles, guiding the visitor towards slower breathing without abrupt changes. If they lose the rhythm, it waits.
+
 ## 03. Conceptual Context
 ## 04. Research
 ## 05. Mechanical Design and Fabrication
