@@ -84,7 +84,9 @@ Soap bubbles are both ephemeral and delicate. Their usually short existence insp
 
 Lastly, one of the pillars of modern design theory discusses how design can be regarded as good if it is intuitive. We believe bubbles are familiar and tangible, and that their movement can be understood without screens and numbers. This allows our interaction to unfold through observation of only a couple of breaths: thus, an intuitive choice.
 
-<img width="607" height="405" alt="Screenshot 2026-11-09 at 12 59 36 PM" src="https://github.com/user-attachments/assets/e70be18c-e150-40ff-b537-b2bd3fe55ae8" />
+<p align="center">
+  <img width="607" height="405" alt="Respira project image" src="https://github.com/user-attachments/assets/e70be18c-e150-40ff-b537-b2bd3fe55ae8" />
+</p>
 
 
 ## 04. Research
