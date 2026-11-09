@@ -26,5 +26,15 @@ Through this gradual transition from mirroring to pacing,"Respira" investigates 
 9. Safety and Ethics
 10. References
 
+---
+
 ## 01. Project Overview 
 ## 02. System Architecture
+## 03. Conceptual Context
+## 04. Research
+## 05. Mechanical Design and Fabrication
+## 06. Hardware
+## 07. Software
+## 08. Machine Learning
+## 09. Safety and Ethics
+## 10. References
