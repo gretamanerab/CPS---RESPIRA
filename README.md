@@ -126,7 +126,9 @@ A soap bubble is a thin liquid film consisting of a layer of water stabilised by
 <img width="227" height="201" alt="Screenshot 2026-11-09 at 1 11 57 PM" src="https://github.com/user-attachments/assets/88f4be6f-997b-4745-9ab7-f9692270a047" />
 </p>
 
+
 At the air–water interface, these molecules orient themselves with their hydrophilic heads towards the water and their hydrophobic tails towards the surrounding air. This arrangement reduces the surface tension of water, allowing it to stretch into a thin, flexible film capable of enclosing air (Gibbs, Bubble and Foam Chemistry).
+
 
 <p align="center">
 <img width="582" height="307" alt="Screenshot 2026-11-09 at 1 13 36 PM" src="https://github.com/user-attachments/assets/54d06b51-c366-4650-bfac-63ef522146ce" />
@@ -141,7 +143,7 @@ The spherical geometry of a free-floating soap bubble is a consequence of surfac
 Several interactive art and design projects have explored soap bubbles as a medium for translating otherwise invisible phenomena into physical, temporary forms. Frei Otto was a German architect and structural engineer renowned for pioneering lightweight tensile architecture. His work explored how natural physical processes, such as soap bubbles, could inform the development of efficient architectural structures, minimizing material use while maximizing structural performance (Pritzker Architecture Prize, 2015). By suspending soap films within different wire and string boundaries, Otto observed how surface tension naturally generated minimal surfaces.
 
 <p align="center">
-<img width="540" height="393" alt="Screenshot 2026-11-09 at 1 16 55 PM" src="https://github.com/user-attachments/assets/4cabaf84-efd8-402b-9686-493fe3a64930" />
+<img width="1200" height="675" alt="80dc7011ea2714dbc88678e08c1966aa" src="https://github.com/user-attachments/assets/6a7ae89d-e93f-49e1-9eb8-f0538c167a2e" />
 </p>
 
 Two relevant precedents of more contemporary design practises utilizing bubbles are Thom Kubli's Black Hole Horizon (2012–2015) and Yasuaki Kakehi and collaborators' Air on Air (2020).
@@ -151,6 +153,11 @@ Thom Kubli, Black Hole Horizon (2012–2015)
 <p align="center">
 <img width="552" height="370" alt="Screenshot 2026-11-09 at 1 18 33 PM" src="https://github.com/user-attachments/assets/dc06f5d4-f2b0-46cf-964c-930dee23ed32" />
 </p>
+
+<p align="center">
+<img width="1529" height="860" alt="g7wI8P-TuHvo7YYZLUPgfDbHv880lJ_TqNQtvV5sjTJWebuJeuAhrQi1Ir-rRXHNHwBaEfjLNE3QsKa803gdg9_rb258JSxWar2f4FIMYMpiE6mx5jg-HXGt-Iwy62-XFWn2YGdA9s0nSsq5CFbOKstm0A7stZ3PWRsp2QMvODc" src="https://github.com/user-attachments/assets/8948ae86-b45d-4215-aace-b997f46f076f" />
+</p>
+
 
 In Black Hole Horizon, sound is translated into the physical formation of soap bubbles. The bubbles grow in proportion to the duration of the sound, detach from the horns and float through the gallery before eventually bursting. This project demonstrates how an invisible phenomenon can be translated into a tangible, temporary physical form.
 
