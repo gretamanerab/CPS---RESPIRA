@@ -52,7 +52,22 @@ Moving exactly with them, the bubble becomes their breath. “Respira” first e
 5. Guide  
 Once synchronisation is established, the bubbles gradually slow their rhythm, inviting visitors to follow. The installation gradually adjusts towards approximately six breaths per minute. The pace decreases incrementally over several breathing cycles, guiding the visitor towards slower breathing without abrupt changes. If they lose the rhythm, it waits.
 
+Respira connects physiological sensing, machine learning, and mechanical movement through a real-time software pipeline. The system architecture processes visitors through the following steps:
+1. Breathing input (airflow sensor)
+2. Arduino
+3. Signal processing
+4. Machine learning (Wekinator)
+5. State transition processing (Idle / Mirror / Guide / Release)
+6. Arduino
+7. Servo mechanical movement
+8. Physical bubble output
+
+#### *clear diagram here showcasing system architecture*
+
+<Primary Input: Oral Airflow >
+  
 ## 03. Conceptual Context
+
 ## 04. Research
 ## 05. Mechanical Design and Fabrication
 ## 06. Hardware
