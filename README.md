@@ -182,6 +182,18 @@ The mechanical system translates digital control signals into physical movement.
 
 Materials used
 *this needs to be updated*
+| Item | Purpose | Approx. cost (£) |
+|---|---|---:|
+| Arduino, servos | Mechanical movement | — |
+| Differential pressure sensor (MPXV7002DP) | Straw airflow and pop detection | 15–40 |
+| Thermistor and microphone | Fallback sensors | 3–5 |
+| 3D printed holder, interface | — | 10–20 |
+| Water tank, bell container | Water displacement pump | 15–30 |
+| Bubble solution and dipping tray | Long-lasting film | 5–10 |
+| Clear acrylic dome | Draft and splash shield | 0–15 |
+| Stretch fabric, wire, fishing line | Textile fallback | 10–15 |
+| LED strip, 1 m | Lights the bubble | 8–12 |
+| **Total** | | **About 76–167** |
 
 ## 07. Software
 ## 08. Machine Learning
