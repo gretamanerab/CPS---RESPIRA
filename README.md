@@ -15,7 +15,7 @@ Through this gradual transition from mirroring to pacing,"Respira" investigates 
 ---
 
 ## Table of Contents
-1. [Intent and Objectives] (01-intent-and-objectives)
+1. [Intent and Objectives](#01-intent-and-objectives)
 2. System Architecture
 3. Conceptual Context
 4. Research
