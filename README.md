@@ -12,6 +12,8 @@ Through this gradual transition from mirroring to pacing,"Respira" investigates 
 
 #### *clear photo of the finished installation, this is a placeholder*
 
+---
+
 ## 01. Project Overview 
 Table of Contents
 1. Intent and Objectives
