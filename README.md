@@ -64,7 +64,7 @@ Respira connects physiological sensing, machine learning, and mechanical movemen
 
 #### *clear diagram here showcasing system architecture*
 
-<Primary Input: Oral Airflow >
+<Primary>
   
 ## 03. Conceptual Context
 
