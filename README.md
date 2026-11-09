@@ -146,9 +146,7 @@ Several interactive art and design projects have explored soap bubbles as a medi
 
 Two relevant precedents of more contemporary design practises utilizing bubbles are Thom Kubli's Black Hole Horizon (2012–2015) and Yasuaki Kakehi and collaborators' Air on Air (2020).
 
-<p align="center">
-<Thom Kubli, Black Hole Horizon (2012–2015)/>
-</p>
+Thom Kubli, Black Hole Horizon (2012–2015)
 
 <p align="center">
 <img width="552" height="370" alt="Screenshot 2026-11-09 at 1 18 33 PM" src="https://github.com/user-attachments/assets/dc06f5d4-f2b0-46cf-964c-930dee23ed32" />
@@ -156,9 +154,7 @@ Two relevant precedents of more contemporary design practises utilizing bubbles 
 
 In Black Hole Horizon, sound is translated into the physical formation of soap bubbles. The bubbles grow in proportion to the duration of the sound, detach from the horns and float through the gallery before eventually bursting. This project demonstrates how an invisible phenomenon can be translated into a tangible, temporary physical form.
 
-<p align="center">
-<Yasuaki Kakehi and collaborators, Air on Air (2020)/>
-</p>
+Yasuaki Kakehi and collaborators, Air on Air (2020)
 
 <p align="center">
 <img width="369" height="241" alt="Screenshot 2026-11-09 at 1 19 33 PM" src="https://github.com/user-attachments/assets/dcaed202-6dc6-427f-848f-8bad4afde62e" />
