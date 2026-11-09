@@ -1,1 +1,7 @@
+Adding: 
 
+Signal processing.
+Breathing feature extraction.
+Wekinator communication (OSC).
+State transitions (Idle / Mirror / Guide / Release).
+Servo command generation
