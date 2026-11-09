@@ -28,7 +28,7 @@ Through this gradual transition from mirroring to pacing,"Respira" investigates 
 
 ---
 
-## 01. Project Overview 
+## 01. Intent and Objectives
 ## 02. System Architecture
 ## 03. Conceptual Context
 ## 04. Research
