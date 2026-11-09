@@ -14,15 +14,14 @@ Through this gradual transition from mirroring to pacing,"Respira" investigates 
 
 ---
 
-## 01. Project Overview 
-Table of Contents
-1. Intent and Objectives
-2. System Architecture
-3. Conceptual Context
-4. Research
-5. Mechanical Design and Fabrication
-6. Hardware
-7. Software
-8. Machine Learning
-9. Safety and Ethics
-10. References
+## Table of Contents
+### 1. Intent and Objectives
+### 2. System Architecture
+### 3. Conceptual Context
+### 4. Research
+### 5. Mechanical Design and Fabrication
+### 6. Hardware
+### 7. Software
+### 8. Machine Learning
+### 9. Safety and Ethics
+### 10. References
