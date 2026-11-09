@@ -64,11 +64,11 @@ Respira connects physiological sensing, machine learning, and mechanical movemen
 
 #### *clear diagram here showcasing system architecture*
 
-####   02.1 Primary Input: Oral Airflow
+####   02. 1 Primary Input: Oral Airflow
 
 Visitors breathe through a disposable, custom-designed interface. A differential pressure sensor measures the pressure difference across the restriction at 50 Hz, providing a signal from which airflow direction, breathing rate, and relative breath depth can be estimated. This mouthpiece-based approach draws on respiratory measurement methods described by Masaoka and Homma (2008).
 
-####   02.2 Primary Output: Mechanical Movement and Bubble formation
+####   02. 2 Primary Output: Mechanical Movement and Bubble formation
 
 The primary output is a mechanical movement in the mechanism that results in a real soap bubble formation. This movement is mediated by a machine learning algorithm. The mechanism consists of three individual rings connected in an arrangement that allows them to move relative to one another. A servo motor mounted at the side of the assembly drives this movement, creating an angular displacement between the rings. As the rings move apart, the soap film is stretched across the changing geometry, enabling the formation of a bubble. The servo motor controls the movement of the rings, translating the system's output signals into physical motion. This allows the mechanical output to respond to the visitor's breathing pattern.
 
@@ -81,6 +81,11 @@ We use soap bubbles as a physical representation of an individual's breathing. T
 A bubble shows clear volumes in one of the most natural configurations: a sphere. In this way, breaths can be illustrated as filling and emptying compared to a lung. Bubbles can be here regarded as an embodiment of air.
 
 Soap bubbles are both ephemeral and delicate. Their usually short existence inspires us to pay attention to and care for them. Moreover, rushed breathing can lead to bubbles bursting, which implies that slow breathing can keep them alive. Coupled with mechanics, we believe bubbles can inspire visitors in an inherently gentle and fragile interaction.
+
+Lastly, one of the pillars of modern design theory discusses how design can be regarded as good if it is intuitive. We believe bubbles are familiar and tangible, and that their movement can be understood without screens and numbers. This allows our interaction to unfold through observation of only a couple of breaths: thus, an intuitive choice.
+
+<img width="607" height="405" alt="Screenshot 2026-11-09 at 12 59 36 PM" src="https://github.com/user-attachments/assets/e70be18c-e150-40ff-b537-b2bd3fe55ae8" />
+
 
 ## 04. Research
 ## 05. Mechanical Design and Fabrication
