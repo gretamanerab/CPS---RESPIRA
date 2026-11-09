@@ -89,6 +89,25 @@ Lastly, one of the pillars of modern design theory discusses how design can be r
 </p>
 
 ## 04. Research
+
+####   04. 1 Literary Review: Breathing and human physiological response to stress
+
+Research by Homma and Masaoka (2008) explores the relationship between respiratory rhythms and emotional states, while Russo et al. (2017) review the physiological mechanisms associated with slow breathing. Research suggests that voluntarily slowing breathing can influence cardiovascular regulation, particularly heart rate variability (HRV).
+
+HRV describes variations in the time intervals between consecutive heartbeats and is commonly used to investigate autonomic regulation. Russo et al. (2017) identify approximately six breaths per minute as a particularly relevant breathing frequency for cardiovascular effects. At this rate, respiratory and cardiovascular rhythms interact, potentially increasing heart rate variability.
+
+Similarly, Shao et al. (2024) reviewed 31 studies involving 1,133 participants. Their findings indicated improvements in several cardiovascular measures following slow-paced breathing, although evidence for reductions in negative emotions was less conclusive.
+
+#### Human Breathing patterns and Respira physiological targets
+
+| Feature | Under stress | Goal |
+|---|---|---|
+| Breathing rate | Often increases | 6 breaths per minute |
+| Inhale to exhale ratio | Exhale becomes relatively shorter | Longer exhalation than inhalation (e.g. 1:2) |
+| Exhale duration | Often shortened | Extended with a gradual and controlled release |
+| Breath-to-breath variability | May become irregular or altered | Consistent and rhythmic breathing |
+| Breath depth | Shallower | Controlled |
+
 ## 05. Mechanical Design and Fabrication
 ## 06. Hardware
 ## 07. Software
