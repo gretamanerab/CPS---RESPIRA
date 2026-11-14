@@ -78,3 +78,51 @@ Yasuaki Kakehi and collaborators, Air on Air (2020)
 </p>
 
 Air on Air connects participants in different locations through their breath. Participants blow into a microphone, transmitting their breath as data over the internet. A bubble-generating machine at a distant location then produces bubbles in response to the strength and duration of the transmitted breath. This project demonstrates how breathing can be captured as input and translated into a physical bubble-based output. Respira develops this relationship further by exploring not only the representation of breath, but also the possibility of influencing its rhythm through a responsive interaction.
+
+## References
+
+Balban, M. Y., et al. “Brief Structured Respiration Practices Enhance Mood and Reduce Physiological Arousal.” *Cell Reports Medicine* 4, no. 1 (2023): 100895. [https://doi.org/10.1016/j.xcrm.2022.100895](https://doi.org/10.1016/j.xcrm.2022.100895).
+
+Bhamla, M. S., C. Chai, M. A. Álvarez-Valenzuela, J. Tajuelo, and G. G. Fuller. “Interfacial Mechanisms for Stability of Surfactant-Laden Films.” *PLOS ONE* 12, no. 5 (2017): e0175753. [https://doi.org/10.1371/journal.pone.0175753](https://doi.org/10.1371/journal.pone.0175753).
+
+“Breathing Metrics for Stress Detection and Guided Breathing.” Background Research and Sensor Comparison. Claude Artifact. [https://claude.ai/artifact/WgDdvaBqwFZTfhzFZooab7](https://claude.ai/artifact/WgDdvaBqwFZTfhzFZooab7).
+
+Cantat, I., S. Pertant, C. Raufaste, and E. Rio. “Capillary Drainage in Horizontal Soap Films: Theoretical Review and Experimental Illustrations.” *Annual Review of Fluid Mechanics* 58 (2026): 111–38. [https://doi.org/10.1146/annurev-fluid-100224-111138](https://doi.org/10.1146/annurev-fluid-100224-111138).
+
+Cohen, C., B. Darbois Texier, E. Reyssat, J. H. Snoeijer, D. Quéré, and C. Clanet. “On the Shape of Giant Soap Bubbles.” *Proceedings of the National Academy of Sciences* 114, no. 10 (2017): 2515–19. [https://doi.org/10.1073/pnas.1612188114](https://doi.org/10.1073/pnas.1612188114).
+
+“Development and Pilot Test of a Virtual Reality Respiratory Biofeedback Approach.” (2020). [https://doi.org/10.1007/s10484-020-09468-x](https://doi.org/10.1007/s10484-020-09468-x).
+
+Fiebrink, Rebecca. *Wekinator*. Software and project website. [https://www.wekinator.org/](https://www.wekinator.org/).
+
+Franco, José Tomás. “Frei Otto Experimenting with Soap Bubbles.” *ArchDaily*, 2015. [https://www.archdaily.com/609541/video-frei-otto-experimenting-with-soap-bubbles](https://www.archdaily.com/609541/video-frei-otto-experimenting-with-soap-bubbles).
+
+Grassmann, M., et al. “Respiratory Changes in Response to Cognitive Load: A Systematic Review.” *Neural Plasticity* 2016 (2016): 8146809. [https://doi.org/10.1155/2016/8146809](https://doi.org/10.1155/2016/8146809).
+
+Homma, I., and Y. Masaoka. “Breathing Rhythms and Emotions.” *Experimental Physiology* 93, no. 9 (2008): 1011–21. [https://doi.org/10.1113/expphysiol.2008.042424](https://doi.org/10.1113/expphysiol.2008.042424).
+
+Kakehi, Y., et al. *Air on Air*. Ars Electronica Festival, 2020.
+
+Kawashima, R., and Y. Kakehi. *Anima – Breathing Life Into a Light*. Material Experience Design Laboratory, University of Tokyo, 2018.
+
+Laborde, S., et al. “Effects of Voluntary Slow Breathing on Heart Rate and Heart Rate Variability: A Systematic Review and a Meta-Analysis.” *Neuroscience & Biobehavioral Reviews* 138 (2022): 104711. [https://doi.org/10.1016/j.neubiorev.2022.104711](https://doi.org/10.1016/j.neubiorev.2022.104711).
+
+Marteau, T. M., and H. Bekker. “The Development of a Six-Item Short Form of the State Scale of the STAI.” *British Journal of Clinical Psychology* 31, no. 3 (1992): 301–6. [https://doi.org/10.1111/j.2044-8260.1992.tb00997.x](https://doi.org/10.1111/j.2044-8260.1992.tb00997.x).
+
+Masaoka, Y., and I. Homma. “Anxiety and Respiratory Patterns: Their Relationship during Mental Stress and Physical Load.” *International Journal of Psychophysiology* 27, no. 2 (1997): 153–59. [https://doi.org/10.1016/S0167-8760(97)00052-4](https://doi.org/10.1016/S0167-8760(97)00052-4).
+
+OpenStax. *University Physics, Volume 3: Interference in Thin Films*. Rice University, 2016. [https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films](https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films).
+
+Pasquet, M., F. Boulogne, F. Restagno, and E. Rio. “Lifetime of Vertical Giant Soap Films: Role of the Relative Humidity and Film Dimensions.” *Soft Matter* 20 (2024): 2374–80. [https://doi.org/10.1039/D3SM01629C](https://doi.org/10.1039/D3SM01629C).
+
+Préve, D., and A. Saa. “Doughnut-Shaped Soap Bubbles.” *Physical Review E* 92 (2015): 042402. [https://doi.org/10.1103/PhysRevE.92.042402](https://doi.org/10.1103/PhysRevE.92.042402).
+
+Pugh, R. J. “Soap Bubbles and Thin Films.” In *Bubble and Foam Chemistry*, 84–111. Cambridge: Cambridge University Press, 2016. [https://doi.org/10.1017/CBO9781316106938.004](https://doi.org/10.1017/CBO9781316106938.004).
+
+Russo, M. A., D. M. Santarelli, and D. O’Rourke. “The Physiological Effects of Slow Breathing in the Healthy Human.” *Breathe* 13, no. 4 (2017): 298–309. [https://doi.org/10.1183/20734735.009817](https://doi.org/10.1183/20734735.009817).
+
+Schmidt, P., et al. “Introducing WESAD, a Multimodal Dataset for Wearable Stress and Affect Detection.” In *Proceedings of the 2018 ACM International Conference on Multimodal Interaction (ICMI 2018)* (2018). [https://doi.org/10.1145/3242969.3242985](https://doi.org/10.1145/3242969.3242985).
+
+Shao, R., I. S. C. Man, and T. M. C. Lee. “The Effect of Slow-Paced Breathing on Cardiovascular and Emotion Functions: A Meta-Analysis and Systematic Review.” *Mindfulness* 15 (2024): 1–18.
+
+Venkat, R. B., et al. “Development and Preliminary Evaluation of a Prototype Audiovisual Biofeedback Device Incorporating a Patient-Specific Guiding Waveform.” *Physics in Medicine & Biology* 53 (2008): N197. [https://doi.org/10.1088/0031-9155/53/11/N01](https://doi.org/10.1088/0031-9155/53/11/N01).
