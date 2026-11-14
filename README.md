@@ -51,25 +51,9 @@ Moving exactly with them, the bubble becomes their breath. “Respira” first e
 5. Guide  
 Once synchronisation is established, the bubbles gradually slow their rhythm, inviting visitors to follow. The installation gradually adjusts towards approximately six breaths per minute. The pace decreases incrementally over several breathing cycles, guiding the visitor towards slower breathing without abrupt changes. If they lose the rhythm, it waits.
 
-
-flowchart TD
-    A([Visitor approaches installation])
-    B[Visitor puts on breathing sensor<br/>over nose and mouth]
-    C[Visitor breathes naturally]
-    D[Sensor measures breathing pattern]
-    E[Machine mirrors visitor's breathing rhythm]
-    F[Mechanical mechanism expands and contracts<br/>in synchronisation with breathing]
-    G[Soap film membrane forms and moves<br/>with the mechanism]
-    H[Machine gradually slows the rhythm]
-    I[Visitor is guided towards<br/>approximately 6 breaths per minute]
-    J([Breathing session ends])
-    K[Mechanism returns to closed position]
-    L([Installation at rest])
-
-    A --> B --> C --> D --> E
-    E --> F --> G
-    G --> H --> I --> J --> K --> L
-
+<p align="center">
+<img width="566" height="2428" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/39026a5c-734e-4baa-a5da-608e88a69c74" />
+</p>
 
 Respira connects physiological sensing, machine learning, and mechanical movement through a real-time software pipeline. The system architecture processes visitors through the following steps:
 1. Breathing input (airflow sensor)
