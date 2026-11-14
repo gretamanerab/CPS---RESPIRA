@@ -1,5 +1,5 @@
 
-# Motorized Iris Diaphragm — Mechanical Development & Testing
+# Motorized Iris Diaphragm, Development & Testing
 
 **Component:** Motorized Iris Diaphragm  
 **Status:** Discontinued, not integrated into final prototype  
