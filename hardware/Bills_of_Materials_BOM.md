@@ -6,8 +6,8 @@ This document lists the electronic components used in the Respira system, includ
 
 | Component | Specification | Quantity | Function |
 |---|---|---:|---|
-| Arduino | Arduino Nano / final board to confirm | 1 | Microcontroller for sensor acquisition and motor control |
-| Servo motor | Model to confirm | 4 | Drives the mechanical bubble-forming mechanism |
+| Arduino | Arduino Nano| 1 | Microcontroller for sensor acquisition and motor control |
+| Servo motor | 28BYJ-48 5V Stepper Motor | 4 | Drives the mechanical bubble-forming mechanism |
 | USB cable | Data-enabled | 1 | Serial communication and Arduino programming |
 | Power supply | 5v | 1 | Supplies the electronic and mechanical system |
 | LED strip | Model and voltage to confirm | 1 | Bubble illumination |
