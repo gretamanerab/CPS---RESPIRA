@@ -46,7 +46,7 @@ Listed Objectives:
 
 The user experience is divided into three stages:
 1. Notice  
-As visitors first engage, they notice that the bubble formation copies their own breathing. This could make abnormal breathing, such as one aﬀected by stress, evident, without using screens or numbers.
+Visitors begin by putting breathing sensors on. As visitors first engage, they notice that the project expands as a function of their own breathing, leading to a bubble formation copying their own breathing. This could make abnormal breathing, such as one aﬀected by stress, evident, without using screens or numbers.
 3. Mirror  
 Moving exactly with them, the bubble becomes their breath. “Respira” first establishes a sense of correspondence, allowing the visitor and the installation to move together.
 5. Guide  
