@@ -14,19 +14,6 @@ Through this gradual transition from mirroring to pacing,"Respira" investigates 
 
 ---
 
-## Table of Contents
-1. [Intent and Objectives](#01-intent-and-objectives)
-2. [System Architecture](#02-system-architecture)
-3. [Conceptual Context](#03-conceptual-context)
-4. [Mechanical Design and Fabrication](#05-mechanical-design-and-fabrication)
-5. [Hardware](#06-hardware)
-6. [Software](#07-software)
-7. [Machine Learning](#08-machine-learning)
-8. [Safety and Ethics](#09-safety-and-ethics)
-9. [References](#10-references)
-
----
-
 ## 01. Intent and Objectives
 
 Breathing is one of the fundamental mechanisms of the human body.
