@@ -1,4 +1,4 @@
-# CPS-RESPIRA
+# CPS-RESPIRA ADD LINKS TO FOLDERS AND EXPLAIN WHATS INSIDE AND CHECK WHATS WRITTEN HERE CAUSE IT DOESNT MATCH
 Cyber Physical Systems 2026/27
 
 An interactive breathing installation mediated by machine learning
