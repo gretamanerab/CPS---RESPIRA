@@ -52,9 +52,6 @@ Each ultrasonic sensor has **its own breadboard** on the stand. From there, its 
 | Chest | 5V | D2 | D3 | GND |
 | Belly | 5V | D4 | D5 | GND |
 
-## 3. Arduino Nano pin map
-
-![Arduino Nano pin map](images/arduino_pins.jpg)
 
 ## 4. Summary
 
