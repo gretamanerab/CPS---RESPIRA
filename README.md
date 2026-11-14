@@ -65,7 +65,9 @@ Respira connects physiological sensing, machine learning, and mechanical movemen
 7. Servo mechanical movement
 8. Physical bubble output
 
-#### *clear diagram here showcasing system architecture*
+<p align="center">
+<img width="2894" height="194" alt="mermaid-diagram copy" src="https://github.com/user-attachments/assets/afbae2d6-e5a3-4c79-b5ca-ddbff9c2bee0" />
+</p>
 
 ####   02. 1 Primary Input: Oral Airflow
 
