@@ -41,13 +41,34 @@ We explored several mechanical approaches to achieve the desired movement.
 
 ---
 
-## 3. Mechanical Development
+
+## 3. Initial Concepts & Mechanical Exploration
+
+Before developing the physical prototypes, we explored different ways of integrating an adjustable aperture into the bubble-generation system.
+
+Initial sketches were used to explore the geometry and mechanical arrangement before translating the concepts into digital models for fabrication.
+
+### Initial Sketches
+
+The following sketches document the early mechanical exploration and conceptual development of the iris mechanism.
+
+![Initial iris mechanism sketches](Images/iris-initial-sketches.jpg)
+
+*Early notebook sketches exploring blade arrangements, aperture geometry and mechanical actuation.*
+
+## 4. Mechanical Development
 
 We developed and fabricated several iterations of the iris mechanism, exploring different blade geometries, actuation methods and gear configurations.
 
+Following the initial sketches, the concepts were developed further using Adobe Illustrator and Fusion 360.
+
+Adobe Illustrator was used to prepare the two-dimensional geometry for laser cutting, while Fusion 360 was used to develop and refine the three-dimensional mechanical assemblies.
+
+These digital models formed the basis for the subsequent fabrication and testing iterations.
+
 The development focused on three main approaches.
 
-### 3.1 Iteration 01 — Laser-Cut Iris with Eight Blades
+### 4.1 Iteration 01 — Laser-Cut Iris with Eight Blades
 
 **Fabrication:** Laser cutting  
 **Blade material:** 2 mm sheet material  
@@ -82,7 +103,7 @@ Although the laser-cut components allowed us to explore the eight-blade geometry
 
 The design would have required further investigation into the relationship between the blade pivots, drive-ring geometry, latch positions and clearances.
 
-### 3.2 Iteration 02 — 3D-Printed Iris with Sixteen Blades
+### 4.2 Iteration 02 — 3D-Printed Iris with Sixteen Blades
 
 **Fabrication:** FDM 3D printing  
 **Blade count:** 16  
@@ -118,7 +139,7 @@ The sixteen-blade configuration demonstrated that rotational actuation was possi
 
 The high number of blades, combined with their very small thickness and the fabrication limitations of FDM printing, made this approach difficult to develop further.
 
-### 3.3 Iteration 03 — 3D-Printed Iris with Eight Blades and Top-Driven Actuation
+### 4.3 Iteration 03 — 3D-Printed Iris with Eight Blades and Top-Driven Actuation
 
 **Fabrication:** FDM 3D printing  
 **Blade count:** 8  
@@ -150,7 +171,7 @@ Further geometric adjustments and tolerance testing would have been necessary to
 
 ---
 
-## 4. Prototyping and Testing Overview
+## 5. Testing Overview
 
 Across the development process, we fabricated four physical prototype iterations, exploring different blade counts, geometries and actuation configurations.
 
@@ -183,7 +204,7 @@ Despite several iterations, none of the tested configurations achieved the level
 
 ---
 
-## 5. Design Decision — Discontinuing the Mechanism
+## 6. Design Decision
 
 Following the prototyping and testing process, we decided to discontinue the motorized iris diaphragm and remove it from the final Respira assembly.
 
@@ -203,7 +224,7 @@ The iris was therefore excluded from the final prototype.
 
 ---
 
-## 6. Reflection and Technical Learnings
+## 7. Reflection and Technical Learnings
 
 The development of the iris mechanism highlighted the difference between a mechanically plausible concept and a mechanism that can operate reliably once fabricated.
 
@@ -233,7 +254,7 @@ It also reinforced the importance of testing moving assemblies early in the desi
 
 ---
 
-## 7. Source Files and Fabrication Documentation
+## 8. Source Files and Fabrication Documentation
 
 The following files document the design and fabrication process:
 
