@@ -36,7 +36,7 @@ Total examples: 4987 across 16 recordings
 
 Per class: [7] too fast, [4] too slow, [3] erratic
 
-How: I breathed on purpose in each style for around [30] seconds while recording, with the thermistors under the nose and over the mouth and the ultrasonic sensors pointed at chest and belly.
+How: I breathed on purpose in each style for around [30] seconds while recording, with the thermistors under the nose and over the mouth and the ultrasonic sensors pointed at chest and belly. To ensure more accurate readings I had taped cardboard around waist and chest so the ultrasonic would get better readings.
 
 ## 5. Processed datasets
 No separate processed dataset: the Arduino Nano already turns the raw sensor signals into the 7 features before they reach Wekinator, so the .csv file is the data the model was trained on.
@@ -46,17 +46,16 @@ Type: Classifier, 1 output, 3 classes
 
 Algorithm: k Nearest Neighbour (k = [1])
 
-Why: we first tried Dynamic Time Warping on the raw signals, but it was too slow for live use. A classifier on 7 summary features reacts quickly enough for the installation.
+Why: we first tried Dynamic Time Warping on the raw signals, but it was too slow for live use. A classifier on 7 summary features reacts quickly enough for the installation. We chose k Nearest Neighbour because it compares each new breath to the most similar breaths we recorded, so it works even though our 7 measurements depend on each other (which confuses Naive Bayes), our erratic class is scattered rather than neatly separated (which SVM struggles with), and our dataset is small (where a Decision Tree tends to memorise rules that do not generalise).
 
 ## 7. Limitations and next steps
 1. Trained on one person only, so the model has learned my breathing, not breathing in general.
 2. Next step: record 5 to 10 people of different body types and ages, each breathing in all 3 styles.
 3. Test on people who were not in the training data, to see if it works on a new visitor at the installation.
 
-Other ideas: add a 4th "calm" class so the bubble does not correct someone who already breathes well; the thermistors react slowly to very fast breathing.
 
 ## 8. How to reproduce
-1. Upload the Nano sketch from `firmware/` to the Arduino Nano.
+1. Upload the Arduino Nano sketch from `firmware/` to the Arduino Nano.
 2. Run the Processing sketch from `processing/`.
 3. Open the .wekproj in `wekinator-project/` with Wekinator and press Run.
 
