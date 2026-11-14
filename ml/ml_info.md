@@ -15,7 +15,7 @@ Wekinator classifies a visitor's breathing into 3 classes so the bubble knows wh
 | Item | Contents |
 |---|---|
 | `wekinator-project/` | Saved Wekinator project folder: trained kNN model, its configuration and all recorded examples (open the .wekproj file) |
-| `[data].arff` | All 4987 training examples exported from Wekinator (7 inputs + class) |
+| `[data].csv` | All 4987 training examples exported from Wekinator (7 inputs + class) |
 
 ## 3. Inputs (features)
 The Nano calculates 7 features and Processing sends them to Wekinator (OSC port 6448, /wek/inputs):
@@ -34,12 +34,12 @@ Recorded by: Greta Manera Bertizzolo only (single person, demo version)
 
 Total examples: 4987 across 16 recordings
 
-Per class: [x] too fast, [x] too slow, [x] erratic
+Per class: [7] too fast, [4] too slow, [3] erratic
 
-How: I breathed on purpose in each style for [x] seconds while recording, with the thermistors under the nose and over the mouth and the ultrasonic sensors pointed at chest and belly.
+How: I breathed on purpose in each style for around [30] seconds while recording, with the thermistors under the nose and over the mouth and the ultrasonic sensors pointed at chest and belly.
 
 ## 5. Processed datasets
-No separate processed dataset: the Nano already turns the raw sensor signals into the 7 features before they reach Wekinator, so the .arff file is the data the model was trained on.
+No separate processed dataset: the Arduino Nano already turns the raw sensor signals into the 7 features before they reach Wekinator, so the .csv file is the data the model was trained on.
 
 ## 6. Model configuration
 Type: Classifier, 1 output, 3 classes
