@@ -1,6 +1,6 @@
-## 04. Research
+# Respira Research
 
-####   04. 1 Literary Review: Breathing and human physiological response to stress
+###   1. Literary Review: Breathing and human physiological response to stress
 
 Research by Homma and Masaoka (2008) explores the relationship between respiratory rhythms and emotional states, while Russo et al. (2017) review the physiological mechanisms associated with slow breathing. Research suggests that voluntarily slowing breathing can influence cardiovascular regulation, particularly heart rate variability (HRV).
 
@@ -18,7 +18,7 @@ Similarly, Shao et al. (2024) reviewed 31 studies involving 1,133 participants. 
 | Breath-to-breath variability | May become irregular or altered | Consistent and rhythmic breathing |
 | Breath depth | Shallower | Controlled |
 
-####   04. 2 Body Mimetics and Biofeedback
+###   2. Body Mimetics and Biofeedback
 
 Humans are mimetic beings, capable of synchronising body movement to external cues. This can be observed in everyday situations: people walking together may unconsciously adjust their pace to match one another, while listeners often tap their feet or move their bodies in time with music. These examples demonstrate how external rhythms can influence and coordinate human bodily movements to external cues.
 
@@ -28,7 +28,7 @@ Biofeedback refers to the process of making physiological information available 
 
 Building on these principles, Respira explores the relationship between bodily synchronisation and respiratory biofeedback. Rather than immediately instructing visitors to change their breathing, the installation initially mirrors their existing rhythm before gradually introducing a slower pace. Through this transition from mirroring to pacing, Respira investigates whether an external, responsive stimulus can encourage visitors to adjust their breathing through natural processes of synchronisation, potentially supporting momentary stress regulation.
 
-####   04. 3 Bubble Anatomy and Morphogenesis
+###   3. Bubble Anatomy and Morphogenesis
 
 A soap bubble is a thin liquid film consisting of a layer of water stabilised by surfactant molecules at its two air–water interfaces. Surfactants, commonly found in soap and detergents, are amphiphilic molecules composed of hydrophilic (water-attracting) heads and hydrophobic (water-repelling) tails.
 
@@ -48,7 +48,7 @@ Surface tension originates from the cohesive forces between water molecules. Mol
 
 The spherical geometry of a free-floating soap bubble is a consequence of surface-energy minimisation. For a fixed volume of enclosed air, a sphere encloses the maximum volume with the minimum possible surface area. Since surface tension drives the film towards a configuration of lower surface energy, the bubble naturally adopts a spherical form. This makes soap bubbles an example of minimal-surface geometry, in which physical systems organize themselves into configurations that minimize energy (Préve & Saa, 2015; On the Shape of Giant Soap Bubbles, 2017). However, external forces such as gravity, airflow and contact with surrounding surfaces can deform this ideal geometry. A further example of minimal-surface geometry is the catenoid, a surface formed when a soap film spans two parallel, coaxial circular rings. The film adopts an hourglass-like geometry, narrowing towards the centre and widening towards the supporting rings. If the rings are too far apart, the catenoid becomes unstable and snaps into two separate disks. The critical separation for equal rings is approximately 0.663 times the ring diameter. For a spherical bubble, the two radii are equal. Soap bubbles are inherently unstable structures, and their lifetime depends on the physical and environmental conditions surrounding them. Over time, gravity causes liquid to drain towards the lower regions of the film, while evaporation progressively reduces its thickness. Air currents, mechanical contact and local variations in film thickness can further destabilise the structure, eventually causing it to rupture. The stability of a bubble is influenced by the composition of its solution, particularly its surfactant concentration and the presence of additives. Beyond their visual qualities, soap bubbles demonstrate how complex forms can emerge from relatively simple physical principles. Their geometry, movement, color and eventual rupture are not predetermined, but continuously shaped by the interaction between surface tension, gravity, fluid dynamics, light and environmental conditions. In this sense, the bubble can be understood as an example of nature's form-finding processes: a structure that continuously responds to its environment while seeking physical equilibrium.
 
-####   04. 4 Bubble as a Design Informant through Time 
+###   4. Bubble as a Design Informant through Time 
 
 Several interactive art and design projects have explored soap bubbles as a medium for translating otherwise invisible phenomena into physical, temporary forms. Frei Otto was a German architect and structural engineer renowned for pioneering lightweight tensile architecture. His work explored how natural physical processes, such as soap bubbles, could inform the development of efficient architectural structures, minimizing material use while maximizing structural performance (Pritzker Architecture Prize, 2015). By suspending soap films within different wire and string boundaries, Otto observed how surface tension naturally generated minimal surfaces.
 
