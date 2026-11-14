@@ -10,7 +10,7 @@ This document lists the electronic components used in the Respira system, includ
 | Servo motor | 28BYJ-48 5V Stepper Motor | 4 | Drives the mechanical bubble-forming mechanism |
 | USB cable | Data-enabled | 1 | Serial communication and Arduino programming |
 | Power supply | 5v | 1 | Supplies the electronic and mechanical system |
-| LED strip | Model and voltage to confirm | 1 | Bubble illumination |
+| LED strip | NeoPixe WS2812B 45 leds| 1 | Bubble illumination |
 | Jumper wires | Male-to-male / other types | TBD | Electrical connections |
 | Breadboard / prototyping board | // | 4 | Circuit assembly |
 | NTC thermistor | 100K, Beta 3950 | 2 | Experimental breathing temperature measurement |
