@@ -10,11 +10,7 @@
 
 ## 1. Project Context
 
-During the development of Respira, we initially explored the possibility of incorporating a motorized iris diaphragm to regulate airflow into the bubble-generation system.
-
-The original concept involved creating a thin bubble membrane between two circular frames. The frames would be pulled apart using a string-based mechanism, stretching the membrane and allowing a bubble to form.
-
-We wanted to introduce an additional mechanism that would allow us to control access to the air supply by opening and closing an aperture within the circular structure.
+During the development of Respira, we initially explored the possibility of incorporating a motorized iris diaphragm to regulate airflow into the bubble-generation system. The bubbles are currently created by pulling apart a string-based mechanism, stretching the soap, but does not control the longevity of membrane existence. We wanted to introduce an additional mechanism that would enable oxygen supply to be given or cut off, which is a vital part of bubbles being popped or not.
 
 The proposed solution was a motorized iris diaphragm, inspired by the mechanical aperture systems used in camera lenses. By adjusting the opening of the diaphragm, we aimed to regulate the airflow reaching the bubble membrane and introduce another level of control into the bubble-generation process.
 
@@ -26,16 +22,12 @@ The main objective was to develop a compact, lightweight and motorized aperture 
 
 The design had several requirements:
 
-- **Maximum aperture:** Achieve the largest possible central opening relative to the Ø 140 mm outer diameter.
+- **Maximum aperture:** Achieve the largest possible central opening relative to the Ø 140 mm outer diameter. This is directly correlated to the size of the bubbles, so we wanted this as large as possible.
 - **Controlled movement:** Allow the aperture to open and close through a single motorized input.
 - **Mechanical reliability:** Ensure that all blades moved simultaneously and consistently.
-- **Minimal weight:** Reduce the number of components and moving parts.
-- **Minimal thickness:** Minimize the number of structural layers to keep the assembly as thin as possible.
+- **Minimal weight:** Reduce the number of components and moving parts. Because the rings are being pulled by our own mechanism, introducing more unnecessary weight could compromise the structural integrity of the product as a whole. 
+- **Minimal thickness:** Minimize the number of structural layers to keep the assembly as thin as possible for aesthetic purposes.
 - **Integration:** Fit within the circular frame and work alongside the existing string-based membrane system.
-
-A key design question was how many blades to use. We explored different configurations, particularly eight-blade and sixteen-blade arrangements.
-
-Fewer blades offered the possibility of a simpler, lighter assembly with fewer overlapping components. More blades potentially allowed for a more continuous circular aperture, but increased the number of moving parts and the complexity of the mechanism.
 
 We explored several mechanical approaches to achieve the desired movement.
 
@@ -44,15 +36,14 @@ We explored several mechanical approaches to achieve the desired movement.
 
 ## 3. Initial Concepts & Mechanical Exploration
 
-Before developing the physical prototypes, we explored different ways of integrating an adjustable aperture into the bubble-generation system.
+Initial sketches were used to explore the geometry and mechanical arrangement before translating the concepts into digital models for fabrication. A key design question was how many blades to use. We explored different configurations, particularly eight-blade and sixteen-blade arrangements.
 
-Initial sketches were used to explore the geometry and mechanical arrangement before translating the concepts into digital models for fabrication.
+Fewer blades offered the possibility of a simpler, lighter assembly with no overlapping components. However, more blades allowed for a larger central opening due to the resting state of blades overlapping, while increasing weight due to assembled items.  
 
 ### Initial Sketches
 
 The following sketches document the early mechanical exploration and conceptual development of the iris mechanism.
 
-![Initial iris mechanism sketches](Images/iris-initial-sketches.jpg)
 
 *Early notebook sketches exploring blade arrangements, aperture geometry and mechanical actuation.*
 
@@ -106,6 +97,7 @@ The design would have required further investigation into the relationship betwe
 ### 4.2 Iteration 02 — 3D-Printed Iris with Sixteen Blades
 
 **Fabrication:** FDM 3D printing  
+**Material:** PLA (Polylactic Acid)
 **Blade count:** 16  
 **Design approach:** Rotating mechanism with thin interconnected blades
 
