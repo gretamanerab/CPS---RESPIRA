@@ -170,42 +170,80 @@ Lastly, one of the pillars of modern design theory discusses how design can be r
   <img width="607" height="405" alt="Respira project image" src="https://github.com/user-attachments/assets/e70be18c-e150-40ff-b537-b2bd3fe55ae8" />
 </p>
 
+
 ## 05. Mechanical Design and Fabrication
 
-The mechanical system translates digital control signals into physical movement.
+The mechanical system translates digital control signals into physical movement, enabling the expansion and contraction of soap films in response to breathing patterns.
 
-*potentially sketches*
-*CAD model needed here*
-*potentially failed iris mechanism*
-*Techical drawing needed*
+The development process included concept sketching, CAD modelling, mechanical prototyping, digital fabrication, and physical assembly.
+
+### 05.1 Concept Development
+
+Early concepts explored different geometries and mechanical approaches to forming and manipulating soap bubbles.
+
+- [Hand Sketches](docs/Hand-Sketches.md)
+- [Archived Iris Diaphragm Experiment](archive/Motorized-Iris-Diaphragm_test.md)
+
+### 05.2 CAD Modelling
+
+The mechanical components were designed using CAD software and prepared for fabrication.
+
+- [Complete STEP Model](mechanical/Model/BreathDevice.step)
+- [Component Technical Drawings](mechanical/Technical%20Drawings/)
+
+### 05.3 Fabrication
+
+The physical structure combines 3D-printed components, a laser-cut and heat-bent acrylic support, mechanical components, and electronics.
+
+The fabrication process included:
+
+1. Preparing housing geometries in CAD.
+2. Exporting and 3D printing the upper and lower housing components using PLA.
+3. Assembling the printed components with the electronic components.
+4. Preparing an Adobe Illustrator file for laser cutting the acrylic support.
+5. Fabricating a curved metal form using a sheet metal rolling machine.
+6. Heat bending the acrylic around the metal form.
+7. Installing string around the bobbin.
+8. Completing the electrical wiring.
+9. Hand sewing fabric onto the upper mechanism.
+10. Adding the soap and water mixture to the lower component.
+
+Detailed documentation:
+
+- [Mechanical Assembly](docs/Mechanical-Assembly.md)
+- [Acrylic Heat Bending](docs/Acrylic-Heat-Bending.md)
+- [Acrylic Laser-Cutting File](mechanical/Laser%20Cutting/acrylic_stand.ai)
+
+
 
 ## 06. Hardware
 
-Materials used
-*this needs to be updated*
-| Item | Purpose | Approx. cost (£) |
-|---|---|---:|
-| Arduino, servos | Mechanical movement | — |
-| Differential pressure sensor (MPXV7002DP) | Straw airflow and pop detection | 15–40 |
-| Thermistor and microphone | Fallback sensors | 3–5 |
-| 3D printed holder, interface | — | 10–20 |
-| Water tank, bell container | Water displacement pump | 15–30 |
-| Bubble solution and dipping tray | Long-lasting film | 5–10 |
-| Clear acrylic dome | Draft and splash shield | 0–15 |
-| Stretch fabric, wire, fishing line | Textile fallback | 10–15 |
-| LED strip, 1 m | Lights the bubble | 8–12 |
-| **Total** | | **About 76–167** |
+RESPIRA integrates electronic sensing, microcontroller-based processing, motor actuation, and LED illumination.
 
-*Electrical schematics needed here*
+The hardware documentation includes component specifications, wiring configurations, and individual component tests.
 
-*This was outline in documentation presentation as electrical schematics overview*
-FOSS (Free Open Source Software)
-• Intended for designing PCB's, the first step of which is creating an
-accurate electrical schematic
-• Makes professional level schematics with minimal effort, allows you to lay out and plan,
-communicate and document your circuits well
-• Export
-*power budget (servo stall and running current, LEDs, sensor) needs to be included*
+### 06.1 Components
+
+The complete component inventory is documented in the [Bill of Materials](hardware/Bills_of_Materials_BOM.md).
+
+### 06.2 Sensors
+
+- [Sensor Setup](hardware/sensor-setup/sensor-setup.md)
+- [Thermistor Wiring](hardware/thermistor-wiring_test.md)
+- [Ultrasonic Sensor Wiring](hardware/ultrasonic-wiring_test.md)
+
+### 06.3 Actuation and Lighting
+
+- [Stepper Motor Tests](tests/StepperTest/)
+- [LED Ring Wiring](hardware/led-ring-wiring_test.md)
+- [LED Ring Tests](tests/LedsTest/)
+
+### 06.4 Electrical Documentation
+
+- [Arduino Pin Reference](hardware/arduino_pins.jpeg)
+- [Firmware Architecture](firmware/firmware-map.png)
+
+Electrical schematics and power-budget calculations should be added when verified.
 
 ## 07. Software
 
@@ -233,13 +271,33 @@ communicate and document your circuits well
 8. Check that the input data, model output and mechanical response are functioning
 correctly.
 
-####   07. 3 Source Code
 
-All project source code is included in this repository. (need to correct according to what we
-have)
-/arduino/ - Arduino sketches.
-/processing/ - Processing sketches and supporting files.
-/wekinator/ - Wekinator configuration information and model documentation.
+#### 07.3 Source Code
+
+The project uses Arduino, Processing, and Wekinator to connect sensor measurements with mechanical movement.
+
+The source files are organized into the following directories:
+
+- [Firmware](firmware/) — Arduino code for the integrated breathing device.
+- [Processing](processing/) — Communication, signal processing, and machine learning integration.
+- [Machine Learning](ml/) — Wekinator project configuration, trained model, and data.
+- [Tests](tests/) — Individual hardware and communication tests.
+
+**Main project files:**
+
+- [Arduino Firmware](firmware/BreathDevice.ino)
+- [Processing Integration](processing/final_code/WekinatorProcessingArduino.pde)
+- [Wekinator Project](ml/WekiRespira/current/WekiRespira.wekproj)
+- [Trained Model](ml/WekiRespira/current/models/model0.xml)
+
+**Component testing:**
+
+- [LED Ring Test](tests/LedsTest/LedRingTest.ino)
+- [LED Rainbow Test](tests/LedsTest/LedRingRainbowTest.ino)
+- [Stepper Motor Test](tests/StepperTest/MotorTest.ino)
+- [Thermistor Test](tests/test_thermistor/test_thermistors_nano.ino)
+- [Ultrasonic Test](tests/test_ultrasonic/test_ultrasonic.ino)
+
 
 ## 08. Machine Learning
 
