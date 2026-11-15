@@ -93,6 +93,17 @@ The first approach used eight individually laser-cut blades arranged radially ar
 Each blade was designed to rotate around a fixed pivot point. The intention was to connect the blades through a common rotating mechanism, allowing the entire aperture to open and close through a single rotational input.
 
 The components were designed in Adobe Illustrator and laser-cut from 2 mm sheet material.
+Moreover, the gear system was first modeled on gear generator website. Specifics are shown below:
+
+<p align="center">
+   <img width="2110" height="1104" alt="Screenshot 2026-10-29 at 3 35 58 PM" src="https://github.com/user-attachments/assets/96f75ac0-a137-4505-8406-b6940cb3df98" />
+</p>
+
+Picture from laser cutting shown below: 
+
+<p align="center">
+   <img width="1030" height="1372" alt="IMG_8325" src="https://github.com/user-attachments/assets/73f9dcbe-fd3c-4468-9f32-40fdff80956e" />
+</p>
 
 **Fabrication file version 1:** [View laser-cutting SVG](iris-diaphragm-acrylic-file1.svg) 
 **Fabrication file version 2:** [View laser-cutting SVG](iris-diaphragm-acrylic-file2.svg) 
