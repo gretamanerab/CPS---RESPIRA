@@ -123,7 +123,12 @@ When the sketch is uploaded and the LED ring is powered:
 3. The rainbow gradually rotates as the hue values change.
 4. The animation repeats continuously.
 
-This test evaluates the basic functionality of the addressable LEDs before integration with RESPIRA's breathing feedback system.
+This test evaluates the basic functionality of the addressable LEDs before integration with RESPIRA's breathing feedback system. Illustration of expected result shown below:
+
+
+<p align="center">
+  <img width="1254" height="1254" alt="7a235455-b2ad-4471-9a85-f2f841c40c62" src="https://github.com/user-attachments/assets/4f3972ab-36cc-41f4-bd8e-e61da02ca2a4" />
+</p>
 
 ## Troubleshooting
 
