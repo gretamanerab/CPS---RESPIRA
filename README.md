@@ -114,45 +114,140 @@ Listed Objectives:
 3. Breathing Guidance: Investigating stress regulation through breathing interventions
 4. User Experience: Investigate if a non-verbal interaction with bubbles is intuitive to visitors. Self- reported calmness before and after interaction with Respira.
 
+
 ## 02. System Architecture
 
-The user experience is divided into three stages:
-1. Notice  
-Visitors begin by putting breathing sensors on. As visitors first engage, they notice that the project expands as a function of their own breathing, leading to a bubble formation copying their own breathing. This could make abnormal breathing, such as one aﬀected by stress, evident, without using screens or numbers.
-3. Mirror  
-Moving exactly with them, the bubble becomes their breath. “Respira” first establishes a sense of correspondence, allowing the visitor and the installation to move together.
-5. Guide  
-Once synchronisation is established, the bubbles gradually slow their rhythm, inviting visitors to follow. The installation gradually adjusts towards approximately six breaths per minute. The pace decreases incrementally over several breathing cycles, guiding the visitor towards slower breathing without abrupt changes. If they lose the rhythm, it waits.
+RESPIRA connects physiological sensing, machine learning, and mechanical movement through a real-time interactive system.
+
+The installation detects the visitor's breathing pattern, translates the sensor measurements into digital signals, and uses these signals to control a motorized mechanism that expands and contracts a soap membrane.
+
+The interaction begins by mirroring the visitor's breathing rhythm before gradually introducing a slower breathing pattern.
+
+### 02.1 User Experience
+
+The interaction is divided into three stages:
+
+**1. Notice**
+
+Visitors position the breathing sensor interface near their nose and mouth. As they begin breathing, RESPIRA detects changes in airflow temperature and establishes an initial breathing pattern.
+
+**2. Mirror**
+
+The installation synchronizes its mechanical movement with the visitor's breathing. The soap membrane expands and contracts in response to the detected breathing rhythm, creating a physical representation of the participant's breath.
+
+**3. Guide**
+
+Once synchronization is established, the installation gradually introduces a slower breathing rhythm, aiming towards approximately six breaths per minute.
+
+The mechanical movement and visual feedback encourage visitors to follow the slower pace without requiring numerical instructions or a screen.
 
 <p align="center">
   <img
     src="https://github.com/user-attachments/assets/39026a5c-734e-4baa-a5da-608e88a69c74"
-    alt="Respira user experience diagram"
-    width="300"
-  >
+    alt="RESPIRA user experience diagram"
+    width="300">
 </p>
 
-Respira connects physiological sensing, machine learning, and mechanical movement through a real-time software pipeline. The system architecture processes visitors through the following steps:
-1. Breathing input (airflow sensor)
-2. Arduino
-3. Signal processing
-4. Machine learning (Wekinator)
-5. State transition processing (Idle / Mirror / Guide / Release)
-6. Arduino
-7. Servo mechanical movement
-8. Physical bubble output
+### 02.2 System Pipeline
+
+RESPIRA integrates sensing, signal processing, machine learning, and mechanical actuation.
+
+The system follows this general sequence:
+
+1. Breathing measurements are collected through thermistor and ultrasonic sensors.
+2. The Arduino reads the sensor signals.
+3. Sensor data is transmitted to Processing through serial communication.
+4. Processing prepares the incoming measurements for machine learning.
+5. Wekinator interprets the incoming data and returns a classification.
+6. Processing uses the classification to determine the appropriate system response.
+7. Commands are transmitted to the Arduino.
+8. The Arduino controls the motors and LED ring.
+9. The mechanical structure expands or contracts the soap membrane, providing visual feedback.
 
 <p align="center">
-<img width="2894" height="194" alt="mermaid-diagram copy" src="https://github.com/user-attachments/assets/afbae2d6-e5a3-4c79-b5ca-ddbff9c2bee0" />
+  <img
+    width="850"
+    alt="RESPIRA system architecture diagram"
+    src="https://github.com/user-attachments/assets/afbae2d6-e5a3-4c79-b5ca-ddbff9c2bee0">
 </p>
 
-####   02. 1 Primary Input: Oral Airflow
+### 02.3 Breathing Detection
 
-Visitors breathe through a disposable, custom-designed interface. A differential pressure sensor measures the pressure difference across the restriction at 50 Hz, providing a signal from which airflow direction, breathing rate, and relative breath depth can be estimated. This mouthpiece-based approach draws on respiratory measurement methods described by Masaoka and Homma (2008).
+The breathing detection system combines two types of sensors to measure different aspects of respiration.
 
-####   02. 2 Primary Output: Mechanical Movement and Bubble formation
+**Thermistors**
 
-The primary output is a mechanical movement in the mechanism that results in a real soap bubble formation. This movement is mediated by a machine learning algorithm. The mechanism consists of three individual rings connected in an arrangement that allows them to move relative to one another. A servo motor mounted at the side of the assembly drives this movement, creating an angular displacement between the rings. As the rings move apart, the soap film is stretched across the changing geometry, enabling the formation of a bubble. The servo motor controls the movement of the rings, translating the system's output signals into physical motion. This allows the mechanical output to respond to the visitor's breathing pattern.
+Two 100K NTC 3950 thermistors are positioned near the visitor's nose and mouth.
+
+The thermistors detect temperature changes caused by inhalation and exhalation. Exhaled air is generally warmer than the surrounding air, producing a measurable change in thermistor resistance.
+
+The sensors are connected to the Arduino through voltage-divider circuits, allowing temperature variations to be converted into analog voltage readings.
+
+**Ultrasonic Sensors**
+
+Two HC-SR04 ultrasonic sensors are used to measure changes in distance associated with movement of the chest and abdomen during breathing.
+
+The sensors provide additional measurements of respiratory movement, complementing the temperature-based measurements.
+
+Together, these sensors provide multiple inputs for interpreting breathing patterns.
+
+Detailed documentation:
+
+- [Sensor Setup](hardware/sensor-setup/sensor-setup.md)
+- [Thermistor Wiring](hardware/thermistor-wiring_test.md)
+- [Ultrasonic Sensor Wiring](hardware/ultrasonic-wiring_test.md)
+
+### 02.4 Machine Learning and Signal Processing
+
+The sensor measurements are transmitted from the Arduino to Processing, which acts as the communication interface between the physical hardware and Wekinator.
+
+Wekinator receives breathing-related measurements and uses a trained machine learning model to classify incoming patterns.
+
+The classification results are returned to Processing, where they are interpreted as control inputs for the installation.
+
+This enables RESPIRA to respond dynamically to the visitor's breathing rather than following a fixed animation throughout the interaction.
+
+Further documentation:
+
+- [Processing Code](processing/final_code/WekinatorProcessingArduino.pde)
+- [Wekinator Project](ml/WekiRespira/current/WekiRespira.wekproj)
+- [Machine Learning Documentation](ml/WekiRespira/current/ml_info.md)
+
+### 02.5 Mechanical Actuation and Bubble Formation
+
+The mechanical system translates digital control signals into physical movement.
+
+The assembly consists of an upper and lower housing, circular mechanical components connected through hinges, and a motor-driven actuation system.
+
+The upper and lower components were fabricated using 3D printing, while the surrounding support structure was laser-cut and heat-bent from acrylic.
+
+Motors mounted to the upper assembly operate a string-and-bobbin mechanism, enabling controlled movement of the circular components.
+
+As the mechanism moves, the geometry supporting the soap membrane changes, allowing the membrane to expand and contract.
+
+The lower housing contains the soap-and-water solution used to form the membrane.
+
+The movement is coordinated with the detected breathing rhythm, allowing the physical installation to mirror and subsequently guide the visitor's breathing.
+
+Detailed documentation:
+
+- [Mechanical Assembly](docs/Mechanical-Assembly.md)
+- [Complete CAD Model](mechanical/Model/BreathDevice.step)
+- [Technical Drawings](mechanical/Technical%20Drawings/)
+
+### 02.6 LED Feedback
+
+An addressable LED ring provides an additional layer of visual feedback during the interaction.
+
+The lighting system is controlled through the Arduino and can display different colours, brightness levels, and animations.
+
+The LED system supports visual communication of breathing-related information and mechanical transitions.
+
+Individual LED tests were conducted to evaluate colour output, brightness control, and animated lighting patterns.
+
+- [LED Ring Wiring](hardware/led-ring-wiring_test.md)
+- [LED Ring Tests](tests/LedsTest/)
+- [LED Rainbow Test](tests/LedsTest/LedRingRainbowTest.ino)
 
 ## 03. Conceptual Context
 
@@ -233,13 +328,27 @@ The complete component inventory is documented in the [Bill of Materials](hardwa
 - [Ultrasonic Sensor Wiring](hardware/ultrasonic-wiring_test.md)
 
 
+
 ### 05.3 Material Exploration
 
-Digital renders were developed to investigate alternative material configurations for RESPIRA.
+Material exploration formed part of the visual and physical development of RESPIRA.
 
-The exploration considered how differences in transparency, reflectivity, surface texture, and material finishes influence the visual relationship between the mechanical structure and the soap membrane.
+Using the CAD models, a series of digital renders were produced to investigate different material combinations, surface finishes, and structural appearances.
+
+The studies explored how material properties influence the visual relationship between the mechanical components, the supporting structure, and the soap membrane.
+
+Particular attention was given to:
+
+- **Transparency:** Investigating how transparent materials expose the internal mechanisms and emphasize the soap membrane.
+- **Reflectivity:** Exploring how metallic and reflective surfaces interact with light and the iridescent qualities of soap films.
+- **Surface texture:** Comparing smooth, polished, and textured finishes to evaluate their visual character.
+- **Material contrast:** Examining the relationship between rigid structural elements and the delicate, temporary nature of the soap membrane.
+- **Visual integration:** Considering how different material combinations influence the overall aesthetic identity of the installation.
+
+These renders served as visual design studies rather than representations of finalized manufacturing decisions.
 
 [View Material Exploration and Renders](docs/Material-Renders.md)
+
 
 ### 05.4 Actuation and Lighting
 
