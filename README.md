@@ -1,4 +1,4 @@
-# CPS-RESPIRA ADD LINKS TO FOLDERS AND EXPLAIN WHATS INSIDE
+# CPS-RESPIRA
 
 Cyber Physical Systems 2026/27
 
@@ -28,7 +28,7 @@ This repository documents the research, design, fabrication, electronics, softwa
 - [Acrylic Heat Bending](docs/Acrylic-Heat-Bending.md) — Fabrication of the acrylic support structure using laser cutting and heat bending.
 - [Hand Sketches](docs/Hand-Sketches.md) — Early design explorations and concept sketches.
 - [Research](docs/Research.md) — Background research informing the design and development of RESPIRA.
-- [Research](docs/Material-Renders.md) — Renders of final product with different materials based on CAD files
+- [Material Renders](docs/Material-Renders.md) — Renders of final product with different materials based on CAD files
 
 ### Mechanical Design
 
@@ -171,27 +171,27 @@ Lastly, one of the pillars of modern design theory discusses how design can be r
 </p>
 
 
-## 05. Mechanical Design and Fabrication
+## 04. Mechanical Design and Fabrication
 
 The mechanical system translates digital control signals into physical movement, enabling the expansion and contraction of soap films in response to breathing patterns.
 
 The development process included concept sketching, CAD modelling, mechanical prototyping, digital fabrication, and physical assembly.
 
-### 05.1 Concept Development
+### 04.1 Concept Development
 
 Early concepts explored different geometries and mechanical approaches to forming and manipulating soap bubbles.
 
 - [Hand Sketches](docs/Hand-Sketches.md)
 - [Archived Iris Diaphragm Experiment](archive/Motorized-Iris-Diaphragm_test.md)
 
-### 05.2 CAD Modelling
+### 04.2 CAD Modelling
 
 The mechanical components were designed using CAD software and prepared for fabrication.
 
 - [Complete STEP Model](mechanical/Model/BreathDevice.step)
 - [Component Technical Drawings](mechanical/Technical%20Drawings/)
 
-### 05.3 Fabrication
+### 04.3 Fabrication
 
 The physical structure combines 3D-printed components, a laser-cut and heat-bent acrylic support, mechanical components, and electronics.
 
@@ -216,40 +216,49 @@ Detailed documentation:
 
 
 
-## 06. Hardware
+## 05. Hardware
 
 RESPIRA integrates electronic sensing, microcontroller-based processing, motor actuation, and LED illumination.
 
 The hardware documentation includes component specifications, wiring configurations, and individual component tests.
 
-### 06.1 Components
+### 05.1 Components
 
 The complete component inventory is documented in the [Bill of Materials](hardware/Bills_of_Materials_BOM.md).
 
-### 06.2 Sensors
+### 05.2 Sensors
 
 - [Sensor Setup](hardware/sensor-setup/sensor-setup.md)
 - [Thermistor Wiring](hardware/thermistor-wiring_test.md)
 - [Ultrasonic Sensor Wiring](hardware/ultrasonic-wiring_test.md)
 
-### 06.3 Actuation and Lighting
+
+### 05.3 Material Exploration
+
+Digital renders were developed to investigate alternative material configurations for RESPIRA.
+
+The exploration considered how differences in transparency, reflectivity, surface texture, and material finishes influence the visual relationship between the mechanical structure and the soap membrane.
+
+[View Material Exploration and Renders](docs/Material-Renders.md)
+
+### 05.4 Actuation and Lighting
 
 - [Stepper Motor Tests](tests/StepperTest/)
 - [LED Ring Wiring](hardware/led-ring-wiring_test.md)
 - [LED Ring Tests](tests/LedsTest/)
 
-### 06.4 Electrical Documentation
+### 05.5 Electrical Documentation
 
 - [Arduino Pin Reference](hardware/arduino_pins.jpeg)
 - [Firmware Architecture](firmware/firmware-map.png)
 
 Electrical schematics and power-budget calculations should be added when verified.
 
-## 07. Software
+## 06. Software
 
 *need to double check information below*
 
-####   07. 1 Software Pipeline
+####   06. 1 Software Pipeline
 
 1. The Arduino reads the incoming sensor measurements.
 2. Sensor data is transmitted to Processing through serial communication.
@@ -259,7 +268,7 @@ Electrical schematics and power-budget calculations should be added when verifie
 6. Processing interprets the model output and determines the appropriate mechanical response.
 7. Commands are transmitted to the Arduino, which controls the motors.
 
-####   07. 2 Running the Software 
+####   06. 2 Running the Software 
 
 1. Connect the Arduino to the computer.
 2. Open the Arduino sketch in Arduino IDE.
@@ -272,7 +281,7 @@ Electrical schematics and power-budget calculations should be added when verifie
 correctly.
 
 
-#### 07.3 Source Code
+#### 06.3 Source Code
 
 The project uses Arduino, Processing, and Wekinator to connect sensor measurements with mechanical movement.
 
@@ -299,12 +308,11 @@ The source files are organized into the following directories:
 - [Ultrasonic Test](tests/test_ultrasonic/test_ultrasonic.ino)
 
 
-## 08. Machine Learning
+## 07. Machine Learning
 
-Machine learning is used to interpret breathing-related input and determine how the installation
-should respond.
+Machine learning is used to interpret breathing-related input and determine how the installation should respond.
 
-####   08. 1 Training Data
+####   07. 1 Training Data
 
 The original training approach involved recording breathing sessions from the three team members. The proposed dataset includes:
 
@@ -312,7 +320,7 @@ The original training approach involved recording breathing sessions from the th
 2. Moderate breathing.
 3. Stressed or accelerated breathing.
 
-####   08. 2 Final Model Configuration 
+####   07. 2 Final Model Configuration 
 
 1. Model type: [Insert]
 2. Input features: [Insert]
@@ -320,7 +328,7 @@ The original training approach involved recording breathing sessions from the th
 4. Number of training examples: [Insert]
 5. Training configuration: [Insert]
 
-####   08. 3 Model Evaluation
+####   07. 3 Model Evaluation
 
 *[Insert results from testing the trained model.] If possible, include: Confusion matrix, Classification accuracy, Performance on previously unseen recordings, Observations of misclassification or unstable predictions.*
 
@@ -328,7 +336,7 @@ The model's performance is limited by the size and diversity of its training dat
 
 Alternative machine learning approaches could be investigated, including more advanced classification models capable of handling temporal patterns in physiological data. However, more complex models would require larger datasets and additional computational resources.
 
-## 09. Safety and Ethics
+## 08. Safety and Ethics
 
 1. Data.  
 Recordings use anonymous IDs; visitor data is processed live and not saved.
@@ -339,18 +347,16 @@ note tells them to stop if dizzy.
 Soap and water are covered and kept away from the electronics,
 which run on an external supply.
 
-####   09. 1 MSDS (Material Safety Data Sheet)
+####   08. 1 MSDS (Material Safety Data Sheet)
 
 The bubble-forming solution consists of ordinary green liquid washing-up soap diluted with water. Water is used as the diluting medium. No specialised chemical reagents are intentionally added to the bubble solution. The SDS identifies potential eye irritation (H319) and recommends avoiding direct contact, using appropriate eye protection and protective gloves when handling the concentrated product. It also recommends storing the detergent in its original, sealed packaging in a cool, dry environment. The diluted soap solution should be handled carefully to prevent splashing and spills. Any spilled solution should be cleaned promptly to prevent slipping hazards.
 
-####   09. 2 RA (Risk Assessment) 
+####   08. 2 RA (Risk Assessment) 
 
 *Hygiene risks associated with the shared breathing interface, Cross-contamination between
 users*
 
-## 10. References
-
-## References
+## 9. References
 
 Balban, M. Y., et al. “Brief Structured Respiration Practices Enhance Mood and Reduce Physiological Arousal.” *Cell Reports Medicine* 4, no. 1 (2023): 100895. [https://doi.org/10.1016/j.xcrm.2022.100895](https://doi.org/10.1016/j.xcrm.2022.100895).
 
