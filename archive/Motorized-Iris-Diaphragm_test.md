@@ -38,14 +38,24 @@ We explored several mechanical approaches to achieve the desired movement.
 
 Initial sketches were used to explore the geometry and mechanical arrangement before translating the concepts into digital models for fabrication. A key design question was how many blades to use. We explored different configurations, particularly eight-blade and sixteen-blade arrangements.
 
-Fewer blades offered the possibility of a simpler, lighter assembly with no overlapping components. However, more blades allowed for a larger central opening due to the resting state of blades overlapping, while increasing weight due to assembled items.  
+Fewer blades offered the possibility of a simpler, lighter assembly with no overlapping components. However, more blades allowed for a larger central opening due to the resting state of blades overlapping, while increasing weight due to assembled items. 
+
+Below some images illustrating the proposed mechanism can be seen:
+
+<p align="center">
+<img width="524" height="450" alt="reference 2" src="https://github.com/user-attachments/assets/99776e1d-200f-4365-8f2a-eca7f471ddb8" />
+</p>
+
+<p align="center">
+<img width="512" height="288" alt="0c0d0855dc725e84498566885cee18b5" src="https://github.com/user-attachments/assets/bd46eed7-21bc-4e46-96b5-d5c7da36e6ff" />
+</p>
 
 ### Initial Sketches
 
 The following sketches document the early mechanical exploration and conceptual development of the iris mechanism.
 
-
-*Early notebook sketches exploring blade arrangements, aperture geometry and mechanical actuation.*
+<p align="center">
+</p>
 
 ## 4. Mechanical Development
 
