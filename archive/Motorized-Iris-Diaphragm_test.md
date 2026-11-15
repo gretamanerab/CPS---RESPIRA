@@ -6,6 +6,9 @@
 **Fabrication methods:** Laser cutting and FDM 3D printing  
 **Design scale:** Ø 140 mm circular mechanism
 
+<p align="center">
+<img width="1291" height="1218" alt="9890e95e-468a-4dc3-befc-20baa072bd95" src="https://github.com/user-attachments/assets/ba61c2c3-1f5a-4d12-91d9-af088688504a" />
+</p>
 ---
 
 ## 1. Project Context
@@ -55,6 +58,11 @@ Below some images illustrating the proposed mechanism can be seen:
 The following sketches document the early mechanical exploration and conceptual development of the iris mechanism.
 
 <p align="center">
+   <img width="3496" height="2326" alt="IMG_8912" src="https://github.com/user-attachments/assets/f96fe67b-3631-4959-9e33-738728393344" />
+</p>
+
+<p align="center">
+   <img width="3566" height="2283" alt="IMG_8918" src="https://github.com/user-attachments/assets/c54f2b61-53fe-46d7-861b-147d40577ce7" />
 </p>
 
 ## 4. Mechanical Development
@@ -69,7 +77,11 @@ These digital models formed the basis for the subsequent fabrication and testing
 
 The development focused on three main approaches.
 
-### 4.1 Iteration 01 — Laser-Cut Iris with Eight Blades
+### 4.1 Iteration 01, Laser-Cut Iris with Eight Blades
+
+<p align="center">
+   <img width="1213" height="1297" alt="f715e664-e85a-4d78-880c-468712faa168" src="https://github.com/user-attachments/assets/a5d6e740-25cb-4182-8e2b-466442dcaaaf" />
+</p>
 
 **Fabrication:** Laser cutting  
 **Blade material:** 2 mm sheet material  
@@ -82,6 +94,9 @@ Each blade was designed to rotate around a fixed pivot point. The intention was 
 
 The components were designed in Adobe Illustrator and laser-cut from 2 mm sheet material.
 
+**Fabrication file version 1:** [View laser-cutting SVG](iris-diaphragm-acrylic-file1.svg) 
+**Fabrication file version 2:** [View laser-cutting SVG](iris-diaphragm-acrylic-file2.svg) 
+
 **Testing and observed issues:**
 
 Two main problems emerged during testing:
@@ -92,11 +107,7 @@ Two main problems emerged during testing:
 
 2. **Failure of the unified actuation mechanism**
 
-   The unified gear mechanism did not successfully engage all of the individual blade latches. As a result, rotating the central mechanism did not consistently transfer movement to every blade.
-
-   We found that the blades had to be moved individually rather than being actuated together through a single input.
-
-   The intended mechanical coupling therefore did not function as expected.
+   The unified gear mechanism did not engage all of the individual blade latches. The blades had to be moved individually rather than being actuated together through a single input.
 
 **Outcome:**
 
@@ -104,26 +115,26 @@ Although the laser-cut components allowed us to explore the eight-blade geometry
 
 The design would have required further investigation into the relationship between the blade pivots, drive-ring geometry, latch positions and clearances.
 
-### 4.2 Iteration 02 — 3D-Printed Iris with Sixteen Blades
+### 4.2 Iteration 02, 3D-Printed Iris with Sixteen Blades
+
+<p align="center">
+   <img width="1254" height="1254" alt="97c7f342-6f6c-416d-a504-5c9a1e94b2e7" src="https://github.com/user-attachments/assets/c4aad1fa-9e46-4b1a-96ae-2649c25c0664" />
+</p>
 
 **Fabrication:** FDM 3D printing  
-**Material:** PLA (Polylactic Acid)
+**Material:** PLA
 **Blade count:** 16  
 **Design approach:** Rotating mechanism with thin interconnected blades
 
-The second approach explored a higher blade count using a 3D-printed iris mechanism.
+The second approach explored a higher blade count using a 3D-printed iris mechanism.The intention was to achieve a more continuous aperture by distributing the opening and closing movement across sixteen thinner blades. However, due to 16 blades overlapping, in order to not have a mechanism that is 16 layers of 2mm material thick, which would be too much for our motors to handle, we made these layers 0.2 mm each. 
 
-The intention was to achieve a more continuous aperture by distributing the opening and closing movement across sixteen thinner blades.
-
-Unlike the first iteration, this mechanism was able to rotate and transfer movement to the blade assembly. However, the movement was not consistently distributed across all sixteen blades.
+Unlike the first iteration, this mechanism was able to rotate and transfer movement to the blade assembly. However, the movement was not consistently distributed across all sixteen blades. Due to their thinness, they jammed frequently, leaving air transmission. These were also challenging to print as they were fragile to handle. 
 
 **Testing and observed issues:**
 
 1. **Blade jamming**
 
-   The blades were extremely thin, approximately 0.2 mm, making them difficult to fabricate reliably using FDM 3D printing.
-
-   Some of the printed components failed during fabrication and had to be reprinted multiple times.
+   The blades were extremely thin, approximately 0.2 mm, making them difficult to fabricate reliably using FDM 3D printing. Some of the printed components failed during fabrication and had to be reprinted multiple times.
 
 2. **Inconsistent blade movement**
 
@@ -131,27 +142,24 @@ Unlike the first iteration, this mechanism was able to rotate and transfer movem
 
 3. **Mechanical tolerances**
 
-   The small clearances between the thin blades and their surrounding components made the mechanism sensitive to friction, alignment and fabrication inconsistencies.
-
-   Even small variations in the printed geometry could affect the movement of the interconnected components.
+   The small clearances between the thin blades and their surrounding components made the mechanism sensitive to friction, alignment and fabrication inconsistencies. Even small variations in the printed geometry could affect the movement of the interconnected components.
 
 **Outcome:**
 
-The sixteen-blade configuration demonstrated that rotational actuation was possible, but the mechanism did not achieve reliable synchronized movement.
+The sixteen-blade configuration demonstrated that rotational actuation was possible, but the mechanism did not achieve reliable synchronized movement. It is suspected this would be possible if we used thicker material, such as each blade being 0.5 mm. However, this would not align with the rest of the project goals and force us to reconsider the use of motors as a driving force in the center, possibly failing the core goal to create bubbles through circular components moving away from each other. 
 
-The high number of blades, combined with their very small thickness and the fabrication limitations of FDM printing, made this approach difficult to develop further.
+### 4.3 Iteration 03, 3D-Printed Iris with Eight Blades and Top-Driven Actuation
 
-### 4.3 Iteration 03 — 3D-Printed Iris with Eight Blades and Top-Driven Actuation
+<p align="center">
+<img width="1293" height="1216" alt="21c9b79a-b3aa-4504-965d-d78af9dc48f8" src="https://github.com/user-attachments/assets/a61b8546-1757-438b-9bae-f19f344af6bb" />
+</p>
 
-**Fabrication:** FDM 3D printing  
+**Fabrication:** FDM 3D printing 
+**Material:** PLA
 **Blade count:** 8  
 **Design approach:** Top-driven blade movement
 
-A further approach was developed by a team member, returning to an eight-blade configuration but using a different actuation principle.
-
-Rather than relying on the same rotational blade arrangement, this design explored a mechanism in which the blades were pushed from above to produce the opening and closing movement.
-
-The aim was to simplify the interaction between the moving components and achieve a more reliable aperture.
+Rather than relying on the same rotational blade arrangement, this design explored a mechanism in which the blades were pushed from above to produce the opening and closing movement. The aim was to simplify the interaction between the moving components, testing a new way to have a single layer with 8 blades to remove the risk of blade jamming entirely, and move away from the design in the first prototype. 
 
 **Testing and observed issues:**
 
@@ -168,8 +176,6 @@ However, the exact geometric cause was not isolated during testing.
 **Outcome:**
 
 The eight-blade top-driven configuration also failed to achieve reliable opening and closing.
-
-Further geometric adjustments and tolerance testing would have been necessary to establish whether the actuation principle could work.
 
 ---
 
@@ -190,7 +196,9 @@ The following table summarizes the main approaches and their observed limitation
 
 The photograph below shows several of the fabricated iris components and their different mechanical arrangements.
 
-![Iris mechanism prototype testing](images/iris-mechanism-testing.jpg)
+<p align="center">
+<img width="1458" height="1079" alt="d77605e8-81e8-4b29-a270-7c59c1484823" src="https://github.com/user-attachments/assets/10c9cf73-057b-4aa2-b472-a736ccd90337" />
+</p>
 
 The prototypes were evaluated primarily through physical assembly and manual testing of their opening and closing movements.
 
@@ -210,15 +218,7 @@ Despite several iterations, none of the tested configurations achieved the level
 
 Following the prototyping and testing process, we decided to discontinue the motorized iris diaphragm and remove it from the final Respira assembly.
 
-The decision was primarily driven by the available project timeframe and the amount of additional mechanical development required.
-
-Each approach introduced different challenges:
-
-- The laser-cut eight-blade design had difficulties with blade interference and the transfer of movement through the unified gear mechanism.
-- The sixteen-blade 3D-printed design suffered from fabrication limitations, extremely thin components and inconsistent blade movement.
-- The alternative eight-blade, top-driven design introduced additional geometric challenges related to blade angles and material thickness.
-
-Achieving a reliable mechanism would have required further iterations, potentially including redesigned blade geometries, revised pivot positions, adjusted clearances and a more carefully engineered actuation system.
+The decision was primarily driven by the available project timeframe and the amount of additional mechanical development required and the time constrains of the project. Achieving a reliable mechanism would have required further iterations, potentially including redesigned blade geometries, revised pivot positions, adjusted clearances and a more carefully engineered actuation system.
 
 Given the remaining development time and the need to prioritize the core bubble-generation system, we decided that continuing to refine the iris mechanism was no longer feasible within the project schedule.
 
@@ -230,13 +230,13 @@ The iris was therefore excluded from the final prototype.
 
 The development of the iris mechanism highlighted the difference between a mechanically plausible concept and a mechanism that can operate reliably once fabricated.
 
-One of the main challenges was coordinating multiple moving components through a single actuation input. Although the individual blades and circular geometries appeared feasible in CAD, their physical interaction introduced problems that were not immediately apparent during the design stage.
+One of the main challenges was coordinating multiple moving components through a single actuation input. Although the individual blades and circular geometries appeared feasible in CAD, their physical interaction introduced problems that we did not anticipate. 
 
-Several important considerations emerged:
+Several important considerations came out:
 
 **1. Mechanical coupling and synchronized movement**
 
-A central rotating mechanism needs to transfer movement consistently to every blade. The geometry and positioning of the individual connections are critical. A unified drive component alone does not guarantee synchronized movement if the individual blade connections are not correctly constrained.
+A central rotating mechanism needs to transfer movement consistently to every blade. The geometry and positioning of the individual connections are therefore critical. 
 
 **2. Tolerances and material thickness**
 
@@ -248,20 +248,4 @@ The sixteen-blade configuration demonstrated the limitations of fabricating extr
 
 **4. Balancing aperture size, complexity and weight**
 
-The exploration also highlighted a design trade-off between the number of blades, the size of the central aperture, mechanical complexity and overall weight. Reducing the number of blades can simplify the assembly, but requires careful consideration of blade geometry and coverage. Increasing the number of blades can produce a more continuous aperture, but also introduces additional moving components and potential friction points.
-
-Ultimately, the exploration was discontinued, but it provided valuable insight into the mechanical constraints of integrating a motorized aperture into the Respira system.
-
-It also reinforced the importance of testing moving assemblies early in the design process, particularly when several components must operate together through a shared mechanical input.
-
----
-
-## 8. Source Files and Fabrication Documentation
-
-The following files document the design and fabrication process:
-
-- **Adobe Illustrator:** Laser-cut blade and component geometry.
-- **Fusion 360:** 3D models of the iris mechanism and its mechanical components.
-- **Prototype photographs:** Physical documentation of the different fabricated iterations.
-
-These files provide a record of the mechanical exploration, including the alternative configurations that were tested but ultimately not integrated into the final Respira prototype.
+The exploration also highlighted a design trade-off between the number of blades, the size of the central aperture, mechanical complexity and overall weight. Reducing the number of blades can simplify the assembly, decrease the thickness, but requires careful consideration of blade geometry and lesser opening coverage. Increasing the number of blades can produce a more continuous aperture, more opening space but also introduces additional jamming risks, friction points and overall thickness through layer number. 
