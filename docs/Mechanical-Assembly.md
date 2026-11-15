@@ -108,6 +108,17 @@ The mechanical system uses four 28BYJ-48 5V stepper motors.
 
 The firmware distinguishes between the motors responsible for the main movement of the mechanism and the motor responsible for the locking and unlocking sequence.
 
+Pictures of the mounted motors can be seen below
+
+<p align="center">
+ <img width="4032" height="3024" alt="IMG_8593" src="https://github.com/user-attachments/assets/6b2de9eb-e418-4fa0-9813-4a7ddac2189f" />
+</p>
+
+<p align="center">
+ <img width="3024" height="4032" alt="IMG_8601" src="https://github.com/user-attachments/assets/053e28a2-b243-4c9b-8912-9148815f24e0" />
+
+</p>
+
 **Assembly procedure:**
 
 1. Identify the motor mounting positions.
@@ -173,13 +184,54 @@ The assembled mechanism should be able to transition between its contracted and 
 
 In addition to the 3D-printed components, an acrylic supporting structure was fabricated using laser cutting and heat bending.
 
-The acrylic was shaped to create the required curved structural geometry and provide support for the overall assembly. The process involved preparing the acrylic geometry, cutting the material and applying heat to form the desired curvature.The acrylic fabrication process is documented separately to distinguish material processing from mechanical assembly.
+The acrylic was shaped to create the required curved structural geometry and provide support for the overall assembly. The process involved preparing the acrylic geometry, cutting the material and applying heat to form the desired curvature. In order to mold the acrylic, a metal piece was create. This mold provided a rigid, heat-resistant form around which the acrylic could be shaped.
 
+Pictures from mold making are outlined below and can also be found here [Acrylic Heat-Bending and Fabrication](Acrylic-Heat-Bending.md)
+
+<p align="center">
+ <img width="3024" height="4032" alt="IMG_8575" src="https://github.com/user-attachments/assets/84d0b690-8fab-49e0-8fe2-ca7ce963e902" />
+</p>
+
+<p align="center">
+ <img width="3024" height="4032" alt="IMG_8584" src="https://github.com/user-attachments/assets/07d843d9-1b3d-4e8a-84e9-8dd4d18a7193" />
+</p>
+
+A picture from heat bending can be below and can also be found here [Acrylic Heat-Bending and Fabrication](Acrylic-Heat-Bending.md)
+
+<p align="center">
+ <img width="4032" height="3024" alt="IMG_8587" src="https://github.com/user-attachments/assets/91f81844-a9ea-4226-a5d7-bd40ebfc89bf" />
+</p>
+
+**Assembly procedure:**
+
+1. Creation of Illustrator File
+2. Lazer Cutting 2mm acrylic sheet
+3. Metal mold fabrication using a 
+
+The acrylic fabrication process is documented separately to distinguish material processing from mechanical assembly.
 **Related documentation:** [Acrylic Heat-Bending and Fabrication](Acrylic-Heat-Bending.md)
 
 ---
+## 6. Textile Integratio
 
-## 6. Electronics Integration
+Fabric was hand-sewn onto the upper section of the mechanism. This introduced a textile element into the assembly alongside the rigid 3D-printed and acrylic components, due to the upper element being printed in two separate pieces which diminishes aesthetic value. 
+
+---
+## 7. Soap Solution Preparation
+
+A mixture of soap and water was added to the lower component of the installation. The lower housing serves as the reservoir for the liquid solution used to generate the soap membrane.
+
+The circular frames interact with the solution to create a suspended film that can subsequently be manipulated through mechanical movement.
+
+A picture of the soap solution in the correct placement can be seen below
+
+<p align="center">
+ <img width="3853" height="2793" alt="IMG_8562" src="https://github.com/user-attachments/assets/de0d8c43-3818-470e-b9d7-81472fbb51da" />
+</p>
+
+---
+
+## 8. Electronics Integration
 
 The mechanical assembly operates through an Arduino-controlled system.
 
@@ -197,7 +249,7 @@ The motors provide the mechanical movement, while the sensors and firmware deter
 
 The LED system provides visual feedback during the interaction.
 
-### 6.1 Firmware-Controlled Movement
+### 8.1 Firmware-Controlled Movement
 
 The firmware is organized into five primary operational phases:
 
@@ -215,19 +267,17 @@ During closing, motor 0 unlocks the mechanism before motors 1, 2 and 3 return to
 
 The firmware also coordinates the mechanical movement with sensor data and the LED system.
 
-### 6.2 Firmware Architecture
+### 8.2 Firmware Architecture
 
 The diagram below illustrates the firmware structure, including the operational phases, motor functions, sensor acquisition and communication with Processing and Wekinator.
 
-[firmware](firmware-map.png)
-
 ---
 
-## 7. Assembly Testing and Calibration
+## 9. Assembly Testing and Calibration
 
 Following mechanical assembly, the system requires testing to verify that the motors, strings and circular frames operate together.
 
-### 7.1 Motor Calibration
+### 9.1 Motor Calibration
 
 The firmware includes a calibration phase to establish the motor reference positions.
 
@@ -235,7 +285,7 @@ This allows the system to coordinate the movement of the individual motors durin
 
 Calibration should be completed before evaluating the full opening and closing sequence.
 
-### 7.2 Opening and Closing Tests
+### 9.2 Opening and Closing Tests
 
 The complete mechanical sequence should be evaluated by observing:
 
@@ -243,7 +293,7 @@ The complete mechanical sequence should be evaluated by observing:
 2. The coordination of the three main movement motors.
 5. The return to the initial contracted configuration.
 
-### 7.4 Breathing-Responsive Movement
+### 9.4 Breathing-Responsive Movement
 
 The final stage of testing concerns the relationship between sensor input and mechanical movement.
 
@@ -259,7 +309,7 @@ The system should be evaluated for:
 
 ---
 
-## 8. Reflection
+## 10. Reflection
 
 The assembly of Respira brings together additive manufacturing, mechanical joints, string-driven actuation and electronic control.
 
@@ -269,7 +319,7 @@ The project demonstrates the importance of considering the mechanical, electroni
 
 ---
 
-## 9. Related Documentation
+## 11. Related Documentation
 
 - [Bill of Materials](Bills_of_Materials_BOM.md)
 - [Acrylic Heat-Bending and Fabrication](Acrylic-Heat-Bending.md)
