@@ -106,6 +106,7 @@ Picture from laser cutting shown below:
 </p>
 
 **Fabrication file version 1:** [View laser-cutting SVG](iris-diaphragm-acrylic-file1.svg) 
+
 **Fabrication file version 2:** [View laser-cutting SVG](iris-diaphragm-acrylic-file2.svg) 
 
 **Testing and observed issues:**
