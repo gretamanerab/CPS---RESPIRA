@@ -420,33 +420,104 @@ The source files are organized into the following directories:
 - [Ultrasonic Test](tests/test_ultrasonic/test_ultrasonic.ino)
 
 
+
 ## 07. Machine Learning
 
-Machine learning is used to interpret breathing-related input and determine how the installation should respond.
+Machine learning was implemented using Wekinator to classify breathing patterns from physiological sensor measurements.
 
-####   07. 1 Training Data
+The objective was to translate respiratory measurements into one of three breathing classifications, which could then inform the mechanical response of RESPIRA.
 
-The original training approach involved recording breathing sessions from the three team members. The proposed dataset includes:
+### 07.1 Training Data
 
-1. Calm breathing.
-2. Moderate breathing.
-3. Stressed or accelerated breathing.
+The training dataset was recorded by one team member, Greta Manera Bertizzolo, who deliberately performed different breathing patterns while wearing the sensor interface.
 
-####   07. 2 Final Model Configuration 
+The setup used thermistors positioned near the nose and mouth, alongside ultrasonic sensors directed towards the chest and abdomen.
 
-1. Model type: [Insert]
-2. Input features: [Insert]
-3. Output classes: [Insert]
-4. Number of training examples: [Insert]
-5. Training configuration: [Insert]
+Cardboard surfaces were attached around the chest and waist to improve the consistency of ultrasonic distance measurements.
 
-####   07. 3 Model Evaluation
+The exported dataset contains **4,987 labeled examples across 14 training rounds**.
 
-*[Insert results from testing the trained model.] If possible, include: Confusion matrix, Classification accuracy, Performance on previously unseen recordings, Observations of misclassification or unstable predictions.*
+| Breathing Class | Class ID | Training Examples |
+|---|---|---:|
+| Too fast | 1 | 1,545 |
+| Too slow | 2 | 2,497 |
+| Erratic | 3 | 945 |
+| **Total** | | **4,987** |
 
-The model's performance is limited by the size and diversity of its training dataset. Training on a small number of participants may limit its ability to generalise to visitors with different breathing patterns. With additional resources, the dataset could be expanded to include more participants, a wider range of breathing patterns and more varied physiological measurements. Additional sensor inputs could also improve the model's ability to distinguish between different breathing behaviors.
+The recordings represent intentionally simulated breathing patterns rather than clinically verified stress states.
 
-Alternative machine learning approaches could be investigated, including more advanced classification models capable of handling temporal patterns in physiological data. However, more complex models would require larger datasets and additional computational resources.
+[View Training Dataset](ml/WekiRespira/current/data.csv)
+
+### 07.2 Input Features
+
+The Arduino calculates seven breathing-related features from the sensor measurements.
+
+| Feature | Description |
+|---|---|
+| `bpm` | Estimated breaths per minute |
+| `irregular` | Variation in breathing timing |
+| `depth` | Estimated magnitude of each breath |
+| `ratio` | Relationship between inhalation and exhalation duration |
+| `chest` | Chest movement measured using an ultrasonic sensor |
+| `belly` | Abdominal movement measured using an ultrasonic sensor |
+| `bellyShare` | Relative contribution of abdominal movement |
+
+These features are transmitted through Processing to Wekinator using Open Sound Control (OSC).
+
+The Wekinator project is configured to receive seven inputs at `/wek/inputs` on port `6448`.
+
+### 07.3 Final Model Configuration
+
+The saved Wekinator project contains a classification model with the following configuration:
+
+| Parameter | Configuration |
+|---|---|
+| Software | Wekinator |
+| Model type | Classification |
+| Algorithm | k-Nearest Neighbors (kNN) |
+| Number of neighbors | 1 |
+| Input features | 7 |
+| Output dimensions | 1 |
+| Output classes | 3 |
+| Training examples | 4,987 |
+| OSC input | `/wek/inputs` |
+| OSC input port | `6448` |
+| OSC output | `/wek/outputs` |
+| OSC output port | `12000` |
+
+The model uses the nearest-neighbor approach to classify new observations according to their similarity to recorded training examples.
+
+Earlier development explored Dynamic Time Warping (DTW), but the team selected a feature-based classifier to support faster responses during live interaction.
+
+[View Wekinator Project](ml/WekiRespira/current/WekiRespira.wekproj)
+
+[View Saved Model](ml/WekiRespira/current/models/model0.xml)
+
+[View Machine Learning Documentation](ml/WekiRespira/current/ml_info.md)
+
+### 07.4 Model Evaluation and Limitations
+
+The saved model and training dataset document the implemented classifier, but the provided files do not establish an independent test-set accuracy or confusion matrix.
+
+Consequently, classification performance on previously unseen participants has not been established from the available evidence.
+
+Several limitations are relevant:
+
+1. **Single-participant dataset:** All recorded examples came from one team member, limiting the model's ability to generalize to different users.
+2. **Class imbalance:** The dataset contains more examples of slow breathing than erratic breathing.
+3. **Simulated breathing patterns:** Training labels describe intentionally performed breathing styles, rather than independently measured psychological states.
+4. **Temporal dependence:** Consecutive observations within a recording may be highly similar. Randomly splitting individual rows could therefore overestimate performance on new breathing sessions.
+5. **Unverified generalization:** The saved files do not demonstrate how accurately the classifier performs on previously unseen participants.
+
+A future evaluation should use recordings held out by session or participant, rather than randomly selected rows from the same recordings.
+
+### 07.5 Future Development
+
+Future work should include collecting recordings from a more diverse participant group, testing the model on previously unseen breathing sessions, and evaluating classification performance using a confusion matrix and per-class metrics.
+
+Additional investigation could assess prediction stability, sensor noise, and the effect of different feature combinations on classification reliability.
+
+The current implementation demonstrates a trained breathing-pattern classifier, while broader generalization and its effectiveness in guiding breathing remain subjects for further evaluation.
 
 ## 08. Safety and Ethics
 
