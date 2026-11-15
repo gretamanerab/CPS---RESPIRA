@@ -1,5 +1,5 @@
 
-# Respira — Mechanical Assembly
+# Mechanical Assembly
  
 **Component:** Mechanical Assembly and Actuation System  
 **Fabrication methods:** FDM 3D printing, acrylic laser cutting, metalworking, heat bending and hand sewing.
