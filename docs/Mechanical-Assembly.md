@@ -219,7 +219,7 @@ The firmware also coordinates the mechanical movement with sensor data and the L
 
 The diagram below illustrates the firmware structure, including the operational phases, motor functions, sensor acquisition and communication with Processing and Wekinator.
 
-![Respira firmware architecture](firmware-map.png)
+[firmware](firmware-map.png)
 
 ---
 
