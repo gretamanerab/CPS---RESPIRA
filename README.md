@@ -7,6 +7,11 @@ An interactive breathing installation mediated by machine learning
 Team members: Dario Cosenza, Greta Manera Bertizzolo, Selma Danesi-Vold.    
 Imperial College London &amp; Royal College of Art, Innovation Design Engineering
 
+
+<p align="center">
+<img width="1774" height="887" alt="b450ae89-d12b-4606-b47b-9cfa1736ba06" src="https://github.com/user-attachments/assets/c5c660ae-0b7d-4db3-932c-b5157c072c5e" />
+</p>
+
 ## Project Overview  
 We present "Respira", an interactive installation in which real soap bubbles breathe with visitors. The aim is to gradually lead users to about 6 breaths per minute with longer exhales, a breathing pace associated with changes in cardiovascular regulation and heart rate variability.(Russo et al., 2017).    
 Through this gradual transition from mirroring to pacing,"Respira" investigates whether a responsive, non-verbal interaction can support self-regulation and create a moment of calm. The project explores the relationship between breathing, stress regulation, and human-machine synchronization.
