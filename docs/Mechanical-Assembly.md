@@ -275,7 +275,12 @@ The diagram below illustrates the firmware structure, including the operational 
 
 ## 9. Assembly Testing and Calibration
 
-Following mechanical assembly, the system requires testing to verify that the motors, strings and circular frames operate together.
+Following mechanical assembly, the system requires testing to verify that the motors, strings and circular frames operate together. The final assembly should reassembled this: 
+
+
+<p align="center">
+<img width="1085" height="1449" alt="object" src="https://github.com/user-attachments/assets/76b9b21f-dce0-4d85-855f-c441d93f3e76" />
+</p>
 
 ### 9.1 Motor Calibration
 
