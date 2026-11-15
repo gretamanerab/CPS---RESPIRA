@@ -365,8 +365,6 @@ Electrical schematics and power-budget calculations should be added when verifie
 
 ## 06. Software
 
-*need to double check information below*
-
 ####   06. 1 Software Pipeline
 
 1. The Arduino reads the incoming sensor measurements.
@@ -465,7 +463,21 @@ The bubble-forming solution consists of ordinary green liquid washing-up soap di
 *Hygiene risks associated with the shared breathing interface, Cross-contamination between
 users*
 
-## 9. References
+
+---
+
+## 9. AI Usage Disclosure
+
+Generative artificial intelligence tools, including Claude, were used to support selected aspects of the development and documentation of RESPIRA.
+
+AI assistance was used for:
+
+- Refining written project documentation.
+- Supporting the developmentvand debugging of selected code.
+
+The project involved human-led design decisions, physical prototyping, fabrication, and testing. AI-generated or AI-assisted outputs were reviewed and adapted by the project team where applicable.
+
+## 10. References
 
 Balban, M. Y., et al. “Brief Structured Respiration Practices Enhance Mood and Reduce Physiological Arousal.” *Cell Reports Medicine* 4, no. 1 (2023): 100895. [https://doi.org/10.1016/j.xcrm.2022.100895](https://doi.org/10.1016/j.xcrm.2022.100895).
 
