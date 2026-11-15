@@ -4,19 +4,99 @@ Cyber Physical Systems 2026/27
 
 An interactive breathing installation mediated by machine learning
 
-Team members: Dario Cosenza, Greta Manera Bertizzolo, Selma Danesi-Vold.    
-Imperial College London &amp; Royal College of Art, Innovation Design Engineering
-
-
 <p align="center">
 <img width="1774" height="887" alt="b450ae89-d12b-4606-b47b-9cfa1736ba06" src="https://github.com/user-attachments/assets/c5c660ae-0b7d-4db3-932c-b5157c072c5e" />
 </p>
+
+Team members: Dario Cosenza, Greta Manera Bertizzolo, Selma Danesi-Vold.    
+Imperial College London &amp; Royal College of Art, Innovation Design Engineering
 
 ## Project Overview  
 We present "Respira", an interactive installation in which real soap bubbles breathe with visitors. The aim is to gradually lead users to about 6 breaths per minute with longer exhales, a breathing pace associated with changes in cardiovascular regulation and heart rate variability.(Russo et al., 2017).    
 Through this gradual transition from mirroring to pacing,"Respira" investigates whether a responsive, non-verbal interaction can support self-regulation and create a moment of calm. The project explores the relationship between breathing, stress regulation, and human-machine synchronization.
 
-#### *clear photo of the finished installation, this is a placeholder*
+
+## Repository Structure
+
+This repository documents the research, design, fabrication, electronics, software development, and testing of RESPIRA. The project is organized into the following directories:
+
+### Documentation
+
+**[docs/](docs/)** — Project documentation covering the design process, mechanical assembly, fabrication techniques, and conceptual development.
+
+- [Mechanical Assembly](docs/Mechanical-Assembly.md) — Assembly and construction of the physical mechanism.
+- [Acrylic Heat Bending](docs/Acrylic-Heat-Bending.md) — Fabrication of the acrylic support structure using laser cutting and heat bending.
+- [Hand Sketches](docs/Hand-Sketches.md) — Early design explorations and concept sketches.
+- [Research](docs/Research.md) — Background research informing the design and development of RESPIRA.
+- [Research](docs/Material-Renders.md) — Renders of final product with different materials based on CAD files
+
+### Mechanical Design
+
+**[mechanical/](mechanical/)** — CAD models, technical drawings, and digital fabrication files used to manufacture the physical components.
+
+- [3D CAD Model](mechanical/Model/BreathDevice.step) — STEP model of the breathing device.
+- [Technical Drawings](mechanical/Technical%20Drawings/) — Individual component drawings in PDF format, including the base, bobbin, cable holders, and mechanical parts.
+- [Laser Cutting](mechanical/Laser%20Cutting/) — Vector files for laser-cutting components.
+- [Acrylic Stand](mechanical/Laser%20Cutting/acrylic_stand.ai) — Adobe Illustrator file used to laser-cut the acrylic support structure.
+
+### Hardware and Electronics
+
+**[hardware/](hardware/)** — Electronic components, sensor configurations, wiring documentation, and hardware testing.
+
+- [Bill of Materials](hardware/Bills_of_Materials_BOM.md) — Components and materials used in the project.
+- [Sensor Setup](hardware/sensor-setup/sensor-setup.md) — Sensor configurations, mounting, and photographs.
+- [Thermistor Wiring](hardware/thermistor-wiring_test.md) — Wiring and testing of the breathing thermistors.
+- [Ultrasonic Sensor Wiring](hardware/ultrasonic-wiring_test.md) — Wiring and testing of the ultrasonic sensors.
+- [LED Ring Wiring](hardware/led-ring-wiring_test.md) — LED ring connections and test documentation.
+- [Arduino Pin Reference](hardware/arduino_pins.jpeg) — Arduino pinout reference image.
+
+### Firmware
+
+**[firmware/](firmware/)** — Arduino firmware and supporting documentation for the integrated device.
+
+- [BreathDevice.ino](firmware/BreathDevice.ino) — Arduino sketch for the breathing device.
+- [Firmware Map](firmware/firmware-map.png) — Firmware architecture diagram.
+
+### Processing
+
+**[processing/](processing/)** — Processing sketches for communication between Arduino and the machine learning system.
+
+- [Final Processing Code](processing/final_code/WekinatorProcessingArduino.pde) — Processing sketch for the integrated system.
+- [Training Code](processing/training/wekinator_training_processing.pde) — Processing sketch used during machine learning development.
+
+### Machine Learning
+
+**[ml/](ml/)** — Wekinator project files, model configuration, and recorded data.
+
+- [Wekinator Project](ml/WekiRespira/current/WekiRespira.wekproj) — Wekinator project configuration.
+- [Trained Model](ml/WekiRespira/current/models/model0.xml) — Saved machine learning model.
+- [Training Data](ml/WekiRespira/current/data.csv) — Recorded dataset.
+- [Machine Learning Documentation](ml/WekiRespira/current/ml_info.md) — Information about the machine learning implementation.
+
+### Testing and Prototyping
+
+**[tests/](tests/)** — Standalone experiments and component tests conducted during development.
+
+- [Arduino and Processing Communication](tests/COMarduinoProcessing/) — Serial communication tests.
+- [LED Ring Tests](tests/LedsTest/) — LED ring functionality and rainbow animation tests.
+- [Stepper Motor Tests](tests/StepperTest/) — Stepper motor functionality tests.
+- [Thermistor Tests](tests/test_thermistor/) — Thermistor sensor tests.
+- [Ultrasonic Sensor Tests](tests/test_ultrasonic/) — Ultrasonic distance sensor tests.
+
+### Archived Experiments
+
+**[archive/](archive/)** — Earlier mechanical concepts and experiments retained as part of the design development process.
+
+- [Motorized Iris Diaphragm Test](archive/Motorized-Iris-Diaphragm_test.md) — Documentation of an earlier iris mechanism experiment.
+- [Iris Acrylic File 1](archive/iris-diaphragm-acrylic-file1.svg) — Laser-cutting geometry.
+- [Iris Acrylic File 2](archive/iris-diaphragm-acrylic-file2.svg) — Additional laser-cutting geometry.
+
+### Media
+
+**[media/](media/)** — Project photographs, visual documentation, and video material.
+
+- [Project Hero Image](media/hero-shot.jpg) — Photograph of the completed installation.
+
 
 ---
 
