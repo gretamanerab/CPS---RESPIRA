@@ -47,7 +47,7 @@ The assembly consists of the following primary components:
 
 Additional electronic components, including the Arduino, sensors, LED ring and motor drivers, are documented separately.
 
-See: [Bill of Materials](Bills_of_Materials_BOM.md)
+See: [Bill of Materials](../hardware/Bills_of_Materials_BOM.md)
 
 ---
 
