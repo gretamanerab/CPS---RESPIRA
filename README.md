@@ -33,6 +33,7 @@ This repository documents the research, design, fabrication, electronics, softwa
 - [Acrylic Heat Bending](docs/Acrylic-Heat-Bending.md) — Fabrication of the acrylic support structure using laser cutting and heat bending.
 - [Hand Sketches](docs/Hand-Sketches.md) — Early design explorations and concept sketches.
 - [Research](docs/Research.md) — Background research informing the design and development of RESPIRA.
+- [Research](docs/Bubble-Membrane-Test.md) — Renders of final product with different materials based on CAD files
 - [Material Renders](docs/Material-Renders.md) — Renders of final product with different materials based on CAD files
 
 ### Mechanical Design
@@ -43,6 +44,7 @@ This repository documents the research, design, fabrication, electronics, softwa
 - [Technical Drawings](mechanical/Technical%20Drawings/) — Individual component drawings in PDF format, including the base, bobbin, cable holders, and mechanical parts.
 - [Laser Cutting](mechanical/Laser%20Cutting/) — Vector files for laser-cutting components.
 - [Acrylic Stand](mechanical/Laser%20Cutting/acrylic_stand.ai) — Adobe Illustrator file used to laser-cut the acrylic support structure.
+- [Acrylic Stand Fabrication Notes](mechanical/Laser%20Cutting/Acrylic-Stand) — How the acrylic support was fabricated.
 
 ### Hardware and Electronics
 
@@ -85,7 +87,7 @@ This repository documents the research, design, fabrication, electronics, softwa
 - [Arduino and Processing Communication](tests/COMarduinoProcessing/) — Serial communication tests.
 - [LED Ring Tests](tests/LedsTest/) — LED ring functionality and rainbow animation tests.
 - [Stepper Motor Tests](tests/StepperTest/) — Stepper motor functionality tests.
-- [Thermistor Tests](tests/test_thermistor/) — Thermistor sensor tests.
+- [Thermistor Test](tests/test%20thermistor/test_thermistors_nano.ino)
 - [Ultrasonic Sensor Tests](tests/test_ultrasonic/) — Ultrasonic distance sensor tests.
 
 ### Archived Experiments
@@ -96,12 +98,24 @@ This repository documents the research, design, fabrication, electronics, softwa
 - [Iris Acrylic File 1](archive/iris-diaphragm-acrylic-file1.svg) — Laser-cutting geometry.
 - [Iris Acrylic File 2](archive/iris-diaphragm-acrylic-file2.svg) — Additional laser-cutting geometry.
 
+
 ### Media
 
-**[media/](media/)** — Project photographs, visual documentation, and video material.
+**[media/](media/)** — Project photographs, visual documentation, renders, fabrication records, and video material.
 
-- [Project Hero Image](media/hero-shot.jpg) — Photograph of the completed installation.
-
+- [Project Hero Image](media/Hero-Image.jpg) — Main installation photograph.
+- [Hand Sketches](media/Hand-Sketches.pdf) — Early concept sketches.
+- [Iris Diaphragm Tests](media/Iris-Diaphragm-Tests.pdf) — Earlier mechanism experiments.
+- [Mechanism Fabrication](media/Mechanism-Fabrication.pdf) — Fabrication documentation.
+- [Membrane Reflection Pictures](media/Membrane-Reflection-Pictures.pdf) — Soap membrane visual studies.
+- [Movement Shots](media/Movement-Shots.pdf) — Mechanical movement documentation.
+- [Material Renders](media/Renders-Materials.pdf) — Rendered material alternatives.
+- [Soap Bubble Test 1](media/Soap-Bubble-Test1.pdf) — Soap bubble experiments.
+- [Soap Bubble Test 2](media/Soap-Bubble-Test2.pdf) — Additional bubble experiments.
+- [Membrane Expansion Test 1](media/Soap-Membrane-Expansion-Test1.pdf) — Membrane stretching experiment.
+- [Membrane Expansion Test 2](media/Soap-Membrane-Expansion-Test2.pdf) — Additional expansion observations.
+- [Stand Fabrication](media/Stand-Fabrication.pdf) — Acrylic stand fabrication.
+- [Metal Mold Making Video](media/Metal-Mold-Making-Video.mov) — Fabrication video.
 
 ---
 
@@ -282,6 +296,7 @@ The development process included concept sketching, CAD modelling, mechanical pr
 Early concepts explored different geometries and mechanical approaches to forming and manipulating soap bubbles.
 
 - [Hand Sketches](docs/Hand-Sketches.md)
+- [Bubble Membrane Formation Tests](docs/Bubble-Membrane-Test.md)
 - [Archived Iris Diaphragm Experiment](archive/Motorized-Iris-Diaphragm_test.md)
 
 ### 04.2 CAD Modelling
