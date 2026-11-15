@@ -78,6 +78,12 @@ Video Showing rolling metal process is attached below
 https://github.com/user-attachments/assets/29958d48-52de-496d-99e3-33d29e60260a
 </p>
 
+Result of mold shown here: 
+
+<p align="center">
+  <img width="331" height="454" alt="Screenshot 2026-11-15 at 4 52 06 AM" src="https://github.com/user-attachments/assets/03a2e940-c687-494d-934e-8cdc9d8ff1e5" />
+</p>
+
 ## 5. Acrylic Heat-Bending Process
 
 Following laser cutting, the acrylic profile was thermally formed around the metal former.
