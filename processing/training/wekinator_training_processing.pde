@@ -1,292 +1,271 @@
 // =====================================================================
-// WEKINATOR TRAINING  :  PROCESSING SKETCH
+// WEKINATOR TRAINING  :  PROCESSING SKETCH (CLASSIFIER)
 // =====================================================================
-// What this sketch does, in plain words:
-//   1. It reads the line the Nano sends 20 times every second. That is either
-//      7 breathing features (for a CLASSIFIER):
-//        bpm:18.20,irregular:0.08,depth:9.50,ratio:0.85,chest:3.10,belly:4.20,bellyShare:0.58
-//      or 4 clean values (for DYNAMIC TIME WARPING):
-//        nose:12.40,mouth:3.10,chest:4.00,belly:7.60
-//   2. It sends those numbers straight to Wekinator, in the same order
-//      (OSC, port 6448, message /wek/inputs). No maths here: the Nano did it.
-//   3. It listens for Wekinator's answer (OSC, port 12000):
-//        1 = too fast,  2 = too slow,  3 = erratic  (4 = calm, if you trained it)
-//   4. It sends that answer back to the Nano as one digit and a new line,
-//      twice every second.
-//   5. It shows the numbers and the answer on screen.
+// Reads the 7 breathing features from the Nano, forwards them to
+// Wekinator, receives the class Wekinator recognises and sends it back
+// to the Nano.
 //
-// It understands both kinds of Wekinator project:
-//   * a CLASSIFIER project (answer arrives as /wek/outputs with 1, 2, 3 or 4)
-//   * a DYNAMIC TIME WARPING project (answer arrives as /output_1,
-//     /output_2, /output_3 or /output_4 when Wekinator recognises a pattern)
+// Line from the Nano (20 times per second):
+//   bpm:18.20,irregular:0.08,depth:9.50,ratio:0.85,chest:3.10,belly:4.20,bellyShare:0.58
 //
-// Libraries needed: Serial (already inside Processing) and oscP5
+// Wekinator setup: 7 inputs, 1 output, All classifiers, kNN.
+//   Classes: 1 = too fast, 2 = too slow, 3 = erratic, 4 = calm (optional).
+//
+// Libraries needed: Serial (built into Processing) and oscP5
 //   (Sketch > Import Library > Manage Libraries, search oscP5, Install).
 // =====================================================================
 
 
 // ---------------------------------------------------------------------
-// PART 1 : LIBRARIES (extra tools we borrow)
+// PART 1 : LIBRARIES
 // ---------------------------------------------------------------------
 
-import processing.serial.*;     // the tool that lets Processing read the USB cable
-import oscP5.*;                 // the tool that speaks OSC, the language Wekinator speaks
-import netP5.*;                 // a helper that comes with oscP5, it knows network addresses
+import processing.serial.*;     // reads the USB serial connection to the Nano
+import oscP5.*;                 // sends and receives OSC messages, the format Wekinator uses
+import netP5.*;                 // network addresses for oscP5
 
 
 // ---------------------------------------------------------------------
-// PART 2 : SETTINGS YOU ARE ALLOWED TO CHANGE
+// PART 2 : SETTINGS
 // ---------------------------------------------------------------------
 
-int SERIAL_PORT_INDEX = -1;              // -1 = find the Nano by itself. If that fails, put the number from the console here (for example 3).
-int BAUD_RATE = 115200;                  // must be the same as BAUD_RATE in the Nano sketch
-String WEKINATOR_IP = "127.0.0.1";       // 127.0.0.1 means "this same Mac"
-int WEKINATOR_INPUT_PORT = 6448;         // Wekinator listens for inputs on this port (its default)
-int LISTEN_PORT = 12000;                 // we listen for Wekinator's answer on this port (its default)
-int SEND_CLASS_EVERY_MS = 500;           // send the class to the Nano every 500 milliseconds (twice a second)
-int FORGET_CLASS_AFTER_MS = 20000;       // if Wekinator recognised nothing for 20 seconds, send 0 ("no answer"), so an old visitor's class does not stay forever
+int SERIAL_PORT_INDEX = -1;              // -1 = find the Nano automatically; otherwise the port number shown in the console (for example 3)
+int BAUD_RATE = 115200;                  // same speed as BAUD_RATE in the Nano sketch
+String WEKINATOR_IP = "127.0.0.1";       // 127.0.0.1 = this same computer
+int WEKINATOR_INPUT_PORT = 6448;         // port where Wekinator receives inputs (Wekinator default)
+int LISTEN_PORT = 12000;                 // port where Wekinator's class arrives (Wekinator default)
+int SEND_CLASS_EVERY_MS = 500;           // the class goes to the Nano every 500 milliseconds (twice per second)
+int FORGET_CLASS_AFTER_MS = 20000;       // after 20 seconds with no class from Wekinator, 0 ("no answer") is sent, so an old visitor's class does not stay
 
 
 // ---------------------------------------------------------------------
 // PART 3 : CONNECTIONS
 // ---------------------------------------------------------------------
 
-Serial boardPort;                        // the USB connection to the Nano (stays empty if no Nano is found)
-OscP5 oscP5;                             // the OSC tool, it listens on LISTEN_PORT
-NetAddress wekinatorAddress;             // where Wekinator lives (address and port)
+Serial boardPort;                        // USB connection to the Nano (stays empty if no Nano is found)
+OscP5 oscP5;                             // OSC listener on LISTEN_PORT
+NetAddress wekinatorAddress;             // Wekinator's address and input port
 
 
 // ---------------------------------------------------------------------
-// PART 4 : THE NUMBERS
+// PART 4 : VALUES
 // ---------------------------------------------------------------------
 
-// The Nano can send 4 clean values (for dynamic time warping) or
-// 7 features (for a classifier). This sketch takes whatever comes, in order,
-// so Wekinator's number of inputs must match: 4 or 7.
-int MAX_INPUTS = 10;                     // the most numbers one line may hold
-String[] inputNames = new String[MAX_INPUTS];   // the names of the numbers, for example "bpm"
-float[] inputValues = new float[MAX_INPUTS];    // the numbers themselves
-int inputCount = 0;                      // how many numbers the last good line had
-int linesReceived = 0;                   // how many good lines arrived (to check the cable works)
-int linesSentToWekinator = 0;            // how many times we sent the numbers to Wekinator
+// The Nano sends 7 features per line, always in the same order:
+// bpm, irregular, depth, ratio, chest, belly, bellyShare.
+// Wekinator's number of inputs has to be 7.
+int MAX_INPUTS = 10;                     // maximum number of values accepted in one line
+String[] inputNames = new String[MAX_INPUTS];   // feature names, for example "bpm"
+float[] inputValues = new float[MAX_INPUTS];    // feature values
+int inputCount = 0;                      // number of values in the last valid line (should be 7)
+int linesReceived = 0;                   // count of valid lines from the Nano (shows the cable works)
+int linesSentToWekinator = 0;            // count of messages sent to Wekinator
 
-int currentClass = 0;                    // Wekinator's newest answer: 0 = none yet, 1, 2, 3 (or 4 if you trained calm)
-int lastAnswerTime = -1;                 // when the last answer arrived (-1 = never)
-int lastClassSendTime = 0;               // when we last sent the class to the Nano
+int currentClass = 0;                    // latest class from Wekinator: 0 = none yet, 1, 2, 3 (or 4 if calm was trained)
+int lastAnswerTime = -1;                 // time of the latest class (-1 = never)
+int lastClassSendTime = 0;               // time the class was last sent to the Nano
 
 
 // =====================================================================
-// setup()  runs ONE time when you press Run
+// setup()  runs once at start
 // =====================================================================
 
 void setup() {                                                    // start of setup
-  size(700, 540);                                                 // open a window 700 pixels wide and 540 tall
-  textSize(16);                                                   // letters 16 pixels tall
+  size(700, 540);                                                 // window 700 pixels wide and 540 tall
+  textSize(16);                                                   // text 16 pixels tall
 
-  oscP5 = new OscP5(this, LISTEN_PORT);                           // start OSC and listen on port 12000
-  wekinatorAddress = new NetAddress(WEKINATOR_IP, WEKINATOR_INPUT_PORT);   // remember where Wekinator is
+  oscP5 = new OscP5(this, LISTEN_PORT);                           // starts OSC, listening on port 12000
+  wekinatorAddress = new NetAddress(WEKINATOR_IP, WEKINATOR_INPUT_PORT);   // stores Wekinator's address
 
-  String[] portNames = Serial.list();                             // ask the Mac for every USB serial port
-  println("These are the serial ports on this Mac:");             // a title in the console
-  for (int i = 0; i < portNames.length; i = i + 1) {              // go through every port
-    println("  [" + i + "]  " + portNames[i]);                    // write its number and name
-  }                                                               // end of the list
+  String[] portNames = Serial.list();                             // list of all serial ports on the computer
+  println("These are the serial ports on this Mac:");             // console title
+  for (int i = 0; i < portNames.length; i = i + 1) {              // loops through every port
+    println("  [" + i + "]  " + portNames[i]);                    // prints the port number and name
+  }                                                               // end of the port list
 
-  int chosenPort = -1;                                            // -1 means "no port chosen yet"
-  if (SERIAL_PORT_INDEX >= 0) {                                   // did you type a port number in the settings?
-    chosenPort = SERIAL_PORT_INDEX;                               // then use it
-  } else {                                                        // otherwise look for the Nano by its name
-    for (int i = 0; i < portNames.length; i = i + 1) {            // go through every port
-      String name = portNames[i];                                 // the name of this port
-      boolean isCuPort = name.startsWith("/dev/cu.");             // on a Mac we want ports starting with /dev/cu.
-      boolean looksLikeNano = false;                              // start by assuming it is not the Nano
-      if (name.indexOf("usbserial") >= 0) {                       // does the name contain "usbserial"?
-        looksLikeNano = true;                                     // very likely the Nano
+  int chosenPort = -1;                                            // -1 = no port chosen yet
+  if (SERIAL_PORT_INDEX >= 0) {                                   // port number set by hand in the settings?
+    chosenPort = SERIAL_PORT_INDEX;                               // uses that port
+  } else {                                                        // otherwise searches for the Nano by name
+    for (int i = 0; i < portNames.length; i = i + 1) {            // loops through every port
+      String name = portNames[i];                                 // name of this port
+      boolean isCuPort = name.startsWith("/dev/cu.");             // on a Mac the right ports start with /dev/cu.
+      boolean looksLikeNano = false;                              // assumes it is not the Nano
+      if (name.indexOf("usbserial") >= 0) {                       // name contains "usbserial"?
+        looksLikeNano = true;                                     // likely the Nano
       }                                                           // end of check
-      if (name.indexOf("wchusbserial") >= 0) {                    // "wchusbserial" (the CH340 chip on most Nano copies)?
-        looksLikeNano = true;                                     // very likely the Nano
+      if (name.indexOf("wchusbserial") >= 0) {                    // name contains "wchusbserial" (CH340 chip on most Nano copies)?
+        looksLikeNano = true;                                     // likely the Nano
       }                                                           // end of check
-      if (name.indexOf("usbmodem") >= 0) {                        // "usbmodem"?
-        looksLikeNano = true;                                     // very likely the Nano
+      if (name.indexOf("usbmodem") >= 0) {                        // name contains "usbmodem"?
+        looksLikeNano = true;                                     // likely the Nano
       }                                                           // end of check
-      if (isCuPort == true && looksLikeNano == true) {            // both yes?
-        chosenPort = i;                                           // choose this port
+      if (isCuPort == true && looksLikeNano == true) {            // both conditions true?
+        chosenPort = i;                                           // chooses this port
       }                                                           // end of check
     }                                                             // end of the search
   }                                                               // end of the if / else
 
-  if (chosenPort >= 0 && chosenPort < portNames.length) {         // did we find a real port?
-    println("Using port: " + portNames[chosenPort]);              // say which one
-    boardPort = new Serial(this, portNames[chosenPort], BAUD_RATE);   // open the connection
-    boardPort.bufferUntil('\n');                                  // call serialEvent() every time a whole line has arrived
+  if (chosenPort >= 0 && chosenPort < portNames.length) {         // valid port found?
+    println("Using port: " + portNames[chosenPort]);              // prints the chosen port
+    boardPort = new Serial(this, portNames[chosenPort], BAUD_RATE);   // opens the USB connection
+    boardPort.bufferUntil('\n');                                  // serialEvent() runs each time a full line has arrived
   } else {                                                        // no port found
-    println("No Nano found. Close the Serial Monitor, check the cable, or set SERIAL_PORT_INDEX.");   // what to do
+    println("No Nano found. Close the Serial Monitor, check the cable, or set SERIAL_PORT_INDEX.");   // troubleshooting message
   }                                                               // end of the if / else
 }                                                                 // end of setup
 
 
 // =====================================================================
-// draw()  runs AGAIN AND AGAIN, 60 times every second
+// draw()  repeats 60 times per second
 // =====================================================================
 
 void draw() {                                                     // start of draw
-  sendClassToNano();                                              // step 1: send Wekinator's answer back to the Nano
-  drawScreen();                                                   // step 2: show the numbers
+  sendClassToNano();                                              // step 1: sends Wekinator's class to the Nano
+  drawScreen();                                                   // step 2: draws the values on screen
 }                                                                 // end of draw
 
 
 // =====================================================================
-// A LINE ARRIVED FROM THE NANO
+// LINE FROM THE NANO
 // =====================================================================
-// Processing runs serialEvent() by itself every time a whole line arrived.
+// serialEvent() runs automatically each time a full line arrives.
 
-void serialEvent(Serial port) {                                   // start of the recipe
-  String line = port.readStringUntil('\n');                       // take the whole line
-  if (line == null) {                                             // nothing there?
-    return;                                                       // leave
-  }                                                               // end of the check
-  line = trim(line);                                              // remove invisible letters at the start and end
-  String[] pairs = split(line, ',');                              // cut at every comma: "bpm:18.20" and so on
-  if (pairs.length < 1 || pairs.length > MAX_INPUTS) {            // no pieces, or far too many?
-    return;                                                       // then the line is broken: ignore it
-  }                                                               // end of the check
+void serialEvent(Serial port) {                                   // start of serialEvent
+  String line = port.readStringUntil('\n');                       // reads the full line
+  if (line == null) {                                             // empty?
+    return;                                                       // stops here
+  }                                                               // end of check
+  line = trim(line);                                              // removes invisible characters at the start and end
+  String[] pairs = split(line, ',');                              // splits at every comma: "bpm:18.20" and so on
+  if (pairs.length < 1 || pairs.length > MAX_INPUTS) {            // no pieces, or too many?
+    return;                                                       // broken line, ignored
+  }                                                               // end of check
 
-  String[] newNames = new String[pairs.length];                   // a fresh list for the names of this line
-  float[] newValues = new float[pairs.length];                    // a fresh list for the numbers of this line
-  for (int i = 0; i < pairs.length; i = i + 1) {                  // go through the pieces
-    String[] parts = split(pairs[i], ':');                        // cut "bpm:18.20" into "bpm" and "18.20"
-    if (parts.length != 2) {                                      // we expect a name and a number
-      return;                                                     // otherwise ignore the whole line
-    }                                                             // end of the check
-    float value = float(parts[1]);                                // the number
-    if (Float.isNaN(value)) {                                     // was it not a number?
-      return;                                                     // ignore the whole line
-    }                                                             // end of the check
-    newNames[i] = parts[0];                                       // keep the name
-    newValues[i] = value;                                         // keep the number
+  String[] newNames = new String[pairs.length];                   // new list for the names in this line
+  float[] newValues = new float[pairs.length];                    // new list for the values in this line
+  for (int i = 0; i < pairs.length; i = i + 1) {                  // loops through the pieces
+    String[] parts = split(pairs[i], ':');                        // splits "bpm:18.20" into "bpm" and "18.20"
+    if (parts.length != 2) {                                      // not a name and a value?
+      return;                                                     // whole line ignored
+    }                                                             // end of check
+    float value = float(parts[1]);                                // converts the text to a number
+    if (Float.isNaN(value)) {                                     // not a number?
+      return;                                                     // whole line ignored
+    }                                                             // end of check
+    newNames[i] = parts[0];                                       // stores the name
+    newValues[i] = value;                                         // stores the value
   }                                                               // end of the pieces
 
-  for (int i = 0; i < pairs.length; i = i + 1) {                  // the whole line was good: copy it over
-    inputNames[i] = newNames[i];                                  // copy the name
-    inputValues[i] = newValues[i];                                // copy the number
+  for (int i = 0; i < pairs.length; i = i + 1) {                  // line is valid: copies it over
+    inputNames[i] = newNames[i];                                  // copies the name
+    inputValues[i] = newValues[i];                                // copies the value
   }                                                               // end of copying
-  inputCount = pairs.length;                                      // remember how many numbers there are
-  linesReceived = linesReceived + 1;                              // one more good line
-  sendToWekinator();                                              // pass the numbers on to Wekinator straight away
-}                                                                 // end of the recipe
+  inputCount = pairs.length;                                      // stores how many values the line had
+  linesReceived = linesReceived + 1;                              // one more valid line
+  sendToWekinator();                                              // forwards the values to Wekinator immediately
+}                                                                 // end of serialEvent
 
 
 // =====================================================================
-// TALKING TO WEKINATOR
+// WEKINATOR
 // =====================================================================
 
-void sendToWekinator() {                                          // start of the recipe
-  OscMessage message = new OscMessage("/wek/inputs");             // a new message with the address Wekinator expects
-  for (int i = 0; i < inputCount; i = i + 1) {                    // go through every number, in order
-    message.add(inputValues[i]);                                  // input number i + 1
-  }                                                               // end of the numbers
-  oscP5.send(message, wekinatorAddress);                          // send it to Wekinator on port 6448
-  linesSentToWekinator = linesSentToWekinator + 1;                // count it
-}                                                                 // end of the recipe
+void sendToWekinator() {                                          // start of sendToWekinator
+  OscMessage message = new OscMessage("/wek/inputs");             // new message with Wekinator's input address
+  for (int i = 0; i < inputCount; i = i + 1) {                    // loops through every value, in order
+    message.add(inputValues[i]);                                  // adds input number i + 1
+  }                                                               // end of the values
+  oscP5.send(message, wekinatorAddress);                          // sends the message to Wekinator on port 6448
+  linesSentToWekinator = linesSentToWekinator + 1;                // counts the message
+}                                                                 // end of sendToWekinator
 
 
-void oscEvent(OscMessage incoming) {                              // Processing runs this by itself when an OSC message arrives
-  if (incoming.checkAddrPattern("/wek/outputs") == true) {        // a CLASSIFIER answer?
-    float classNumber = incoming.get(0).floatValue();             // read the number (like 2.0)
-    setClass(round(classNumber));                                 // round it to 1, 2, 3 or 4 and keep it
-  }                                                               // end of the check
-  if (incoming.checkAddrPattern("/output_1") == true) {           // a DYNAMIC TIME WARPING answer for pattern 1?
-    setClass(1);                                                  // too fast
-  }                                                               // end of the check
-  if (incoming.checkAddrPattern("/output_2") == true) {           // pattern 2?
-    setClass(2);                                                  // too slow
-  }                                                               // end of the check
-  if (incoming.checkAddrPattern("/output_3") == true) {           // pattern 3?
-    setClass(3);                                                  // erratic
-  }                                                               // end of the check
-  if (incoming.checkAddrPattern("/output_4") == true) {           // pattern 4 (only if you trained calm)?
-    setClass(4);                                                  // calm
-  }                                                               // end of the check
-}                                                                 // end of the recipe
+void oscEvent(OscMessage incoming) {                              // runs automatically when an OSC message arrives
+  if (incoming.checkAddrPattern("/wek/outputs") == true) {        // classifier output from Wekinator?
+    float classNumber = incoming.get(0).floatValue();             // reads the class number (for example 2.0)
+    setClass(round(classNumber));                                 // rounds it to 1, 2, 3 or 4 and stores it
+  }                                                               // end of check
+}                                                                 // end of oscEvent
 
 
-void setClass(int newClass) {                                     // keeps a new answer, if it is 1, 2, 3 or 4
+void setClass(int newClass) {                                     // stores a new class if it is 1, 2, 3 or 4
   if (newClass >= 1 && newClass <= 4) {                           // is it 1, 2, 3 or 4?
-    currentClass = newClass;                                      // keep it
-    lastAnswerTime = millis();                                    // remember when it arrived
-  }                                                               // end of the check
-}                                                                 // end of the recipe
+    currentClass = newClass;                                      // stores the class
+    lastAnswerTime = millis();                                    // stores the time it arrived
+  }                                                               // end of check
+}                                                                 // end of setClass
 
 
 // =====================================================================
-// SENDING THE CLASS BACK TO THE NANO
+// CLASS BACK TO THE NANO
 // =====================================================================
 
-void sendClassToNano() {                                          // start of the recipe
+void sendClassToNano() {                                          // start of sendClassToNano
   if (boardPort == null) {                                        // no Nano connected?
-    return;                                                       // nobody to send to
-  }                                                               // end of the check
-  int now = millis();                                             // what time is it
-  if (now - lastClassSendTime < SEND_CLASS_EVERY_MS) {            // sent less than half a second ago?
-    return;                                                       // then wait
-  }                                                               // end of the check
-  lastClassSendTime = now;                                        // remember that we send now
-  int classToSend = currentClass;                                 // normally we send Wekinator's newest answer
-  if (lastAnswerTime < 0 || now - lastAnswerTime > FORGET_CLASS_AFTER_MS) {   // no answer ever, or none for 20 seconds?
-    classToSend = 0;                                              // then send 0: "no answer"
-  }                                                               // end of the check
-  if (classToSend < 0 || classToSend > 4) {                       // anything strange?
-    classToSend = 0;                                              // then also send 0
-  }                                                               // end of the check
-  boardPort.write(str(classToSend) + "\n");                       // send the digit and a new line to the Nano
-}                                                                 // end of the recipe
+    return;                                                       // nothing to send to
+  }                                                               // end of check
+  int now = millis();                                             // current time
+  if (now - lastClassSendTime < SEND_CLASS_EVERY_MS) {            // last send less than half a second ago?
+    return;                                                       // waits
+  }                                                               // end of check
+  lastClassSendTime = now;                                        // stores the time of this send
+  int classToSend = currentClass;                                 // by default sends Wekinator's latest class
+  if (lastAnswerTime < 0 || now - lastAnswerTime > FORGET_CLASS_AFTER_MS) {   // no class ever, or none for 20 seconds?
+    classToSend = 0;                                              // sends 0: "no answer"
+  }                                                               // end of check
+  if (classToSend < 0 || classToSend > 4) {                       // unexpected value?
+    classToSend = 0;                                              // sends 0 instead
+  }                                                               // end of check
+  boardPort.write(str(classToSend) + "\n");                       // sends the digit and a new line to the Nano
+}                                                                 // end of sendClassToNano
 
 
 // =====================================================================
-// THE SCREEN
+// SCREEN
 // =====================================================================
 
-String className(int classNumber) {                               // turns a class number into words
+String className(int classNumber) {                               // converts a class number into its name
   if (classNumber == 1) {                                         // 1?
-    return "1  TOO FAST";                                         // its name
-  }                                                               // end of the check
+    return "1  TOO FAST";                                         // name of class 1
+  }                                                               // end of check
   if (classNumber == 2) {                                         // 2?
-    return "2  TOO SLOW";                                         // its name
-  }                                                               // end of the check
+    return "2  TOO SLOW";                                         // name of class 2
+  }                                                               // end of check
   if (classNumber == 3) {                                         // 3?
-    return "3  ERRATIC";                                          // its name
-  }                                                               // end of the check
+    return "3  ERRATIC";                                          // name of class 3
+  }                                                               // end of check
   if (classNumber == 4) {                                         // 4?
-    return "4  CALM";                                             // its name
-  }                                                               // end of the check
-  return "no answer yet";                                         // anything else
-}                                                                 // end of the recipe
+    return "4  CALM";                                             // name of class 4
+  }                                                               // end of check
+  return "no answer yet";                                         // any other number
+}                                                                 // end of className
 
 
-void drawScreen() {                                               // start of the recipe
-  background(20);                                                 // almost black
+void drawScreen() {                                               // start of drawScreen
+  background(20);                                                 // almost black background
   fill(230);                                                      // light grey text
   text("Lines from the Nano: " + linesReceived, 30, 40);          // shows the cable works
-  text("Sent to Wekinator: " + linesSentToWekinator, 30, 66);     // shows Wekinator is being fed
+  text("Sent to Wekinator: " + linesSentToWekinator, 30, 66);     // shows Wekinator is receiving
 
-  text("Inputs per line: " + inputCount + "   (Wekinator's # inputs must be the same)", 30, 92);   // 4 or 7
+  text("Inputs per line: " + inputCount + "   (Wekinator's # inputs must be the same)", 30, 92);   // should be 7
 
-  for (int i = 0; i < inputCount; i = i + 1) {                    // go through every number
-    float y = 130 + i * 24;                                       // each one 24 pixels lower than the one before
-    text((i + 1) + "  " + inputNames[i] + "   " + nf(inputValues[i], 0, 3), 30, y);   // its number, name and value
-  }                                                               // end of the numbers
+  for (int i = 0; i < inputCount; i = i + 1) {                    // loops through every value
+    float y = 130 + i * 24;                                       // each row 24 pixels below the previous one
+    text((i + 1) + "  " + inputNames[i] + "   " + nf(inputValues[i], 0, 3), 30, y);   // input number, name and value
+  }                                                               // end of the values
 
   text("WEKINATOR SAYS", 30, 400);                                // title
-  textSize(30);                                                   // big letters
-  text(className(currentClass), 30, 440);                         // the answer
-  textSize(16);                                                   // back to normal
-  if (lastAnswerTime >= 0) {                                      // did an answer ever arrive?
-    float secondsAgo = (millis() - lastAnswerTime) / 1000.0;      // how long ago
+  textSize(30);                                                   // large text
+  text(className(currentClass), 30, 440);                         // current class
+  textSize(16);                                                   // back to normal size
+  if (lastAnswerTime >= 0) {                                      // has a class ever arrived?
+    float secondsAgo = (millis() - lastAnswerTime) / 1000.0;      // seconds since the latest class
     text("last answer " + nf(secondsAgo, 0, 1) + " s ago", 30, 470);   // if this keeps growing, Wekinator is not running
-  }                                                               // end of the check
+  }                                                               // end of check
 
   if (boardPort == null) {                                        // no Nano?
-    fill(255, 90, 90);                                            // red
+    fill(255, 90, 90);                                            // red text
     text("NO NANO CONNECTED: see the console", 30, 510);          // warning
-  }                                                               // end of the check
-}                                                                 // end of the recipe
+  }                                                               // end of check
+}                                                                 // end of drawScreen
